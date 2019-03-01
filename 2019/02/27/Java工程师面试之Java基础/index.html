@@ -96,23 +96,25 @@
 
 
 
-  <meta name="description" content="江头未是风波恶，别有人间行路难">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Yuzf&#39;s Blog">
-<meta property="og:url" content="http://yuzfds.cn/index.html">
+  <meta name="description" content="Java基础语法 简述Java8种基础类型的大小和他们的封装类，以及他们的初始化默认值。 int和Integer的区别是什么，基础类型和包装类型的区别是什么 char型变量能否存储一个中文汉字 怎样把byte转为String 如何把数值型字符转为数字 能否将int强制转换为byte类型变量？如果该值大于byte类型的范围会怎样 能否在不强制转换的情况下将一个都变了值赋值给long类型 类型的向下转">
+<meta name="keywords" content="基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java工程师面试之Java基础">
+<meta property="og:url" content="http://yuzfds.cn/2019/02/27/Java工程师面试之Java基础/index.html">
 <meta property="og:site_name" content="Yuzf&#39;s Blog">
-<meta property="og:description" content="江头未是风波恶，别有人间行路难">
+<meta property="og:description" content="Java基础语法 简述Java8种基础类型的大小和他们的封装类，以及他们的初始化默认值。 int和Integer的区别是什么，基础类型和包装类型的区别是什么 char型变量能否存储一个中文汉字 怎样把byte转为String 如何把数值型字符转为数字 能否将int强制转换为byte类型变量？如果该值大于byte类型的范围会怎样 能否在不强制转换的情况下将一个都变了值赋值给long类型 类型的向下转">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-02-27T10:42:39.389Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Yuzf&#39;s Blog">
-<meta name="twitter:description" content="江头未是风波恶，别有人间行路难">
+<meta name="twitter:title" content="Java工程师面试之Java基础">
+<meta name="twitter:description" content="Java基础语法 简述Java8种基础类型的大小和他们的封装类，以及他们的初始化默认值。 int和Integer的区别是什么，基础类型和包装类型的区别是什么 char型变量能否存储一个中文汉字 怎样把byte转为String 如何把数值型字符转为数字 能否将int强制转换为byte类型变量？如果该值大于byte类型的范围会怎样 能否在不强制转换的情况下将一个都变了值赋值给long类型 类型的向下转">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yuzfds.cn/">
+  <link rel="canonical" href="http://yuzfds.cn/2019/02/27/Java工程师面试之Java基础/">
 
 
 
@@ -122,7 +124,7 @@
   };
 </script>
 
-  <title>Yuzf's Blog</title>
+  <title>Java工程师面试之Java基础 | Yuzf's Blog</title>
   
 
 
@@ -170,8 +172,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -209,7 +210,7 @@
         
         
           
-          <li class="menu-item menu-item-home menu-item-active">
+          <li class="menu-item menu-item-home">
 
     
     
@@ -322,9 +323,9 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -356,10 +357,8 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/02/27/Java工程师面试之Java基础/" class="post-title-link" itemprop="url">Java工程师面试之Java基础</a>
+          <h1 class="post-title" itemprop="name headline">Java工程师面试之Java基础
+
               
             
           </h1>
@@ -441,9 +440,7 @@
       
 
       
-        
-          
-            <h3 id="Java基础语法"><a href="#Java基础语法" class="headerlink" title="Java基础语法"></a>Java基础语法</h3><ol>
+        <h3 id="Java基础语法"><a href="#Java基础语法" class="headerlink" title="Java基础语法"></a>Java基础语法</h3><ol>
 <li>简述Java8种基础类型的大小和他们的封装类，以及他们的初始化默认值。</li>
 <li>int和Integer的区别是什么，基础类型和包装类型的区别是什么</li>
 <li>char型变量能否存储一个中文汉字</li>
@@ -561,8 +558,6 @@
 <li>JDK为每种类型的流提供了一些抽象类以供继承，分别是哪些类</li>
 </ol>
 
-          
-        
       
     </div>
 
@@ -583,14 +578,20 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/基础/" rel="tag"># 基础</a>
+          
+        </div>
+      
+
+      
+      
+      
 
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -600,14 +601,15 @@
   </article>
 
 
-    
-  </section>
-
-  
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -627,8 +629,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -715,6 +726,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java基础语法"><span class="nav-number">1.</span> <span class="nav-text">Java基础语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java面向对象"><span class="nav-number">2.</span> <span class="nav-text">Java面向对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java常见工具类"><span class="nav-number">3.</span> <span class="nav-text">Java常见工具类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java异常处理"><span class="nav-number">4.</span> <span class="nav-text">Java异常处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java集合框架"><span class="nav-number">5.</span> <span class="nav-text">Java集合框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java反射"><span class="nav-number">6.</span> <span class="nav-text">Java反射</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java注解"><span class="nav-number">7.</span> <span class="nav-text">Java注解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#泛型"><span class="nav-number">8.</span> <span class="nav-text">泛型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#序列化"><span class="nav-number">9.</span> <span class="nav-text">序列化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IO"><span class="nav-number">10.</span> <span class="nav-text">IO</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -860,6 +888,10 @@
 
 
   
+  <script src="/js/src/scrollspy.js?v=7.0.0"></script>
+<script src="/js/src/post-details.js?v=7.0.0"></script>
+
+
 
   
 
@@ -870,6 +902,8 @@
   
   
 
+
+  
 
 
   
