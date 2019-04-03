@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.0.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false,"dimmer":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="体系结构TCP/IP四层 应用层 传输层 网际层 网络接口层  TCP/IP五层 应用层 传输层 网络层 数据链路层 物理层  OSI七层 应用层 表现层 会话层 传输层 网络层 数据链路层 物理层  应用层HTTP协议超文本传输协议(Hyper Text Transfer Protocol),是一种建立在TCP桑的无状态连接。HTTP用于客户端与服务器之间的通信，规定了客户端和服务器之间的通信格">
+<meta name="keywords" content="基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机基础之计算机网络(待完善)">
+<meta property="og:url" content="http://yuzfds.cn/2019/03/01/计算机基础之计算机网络/index.html">
+<meta property="og:site_name" content="Yuzf&#39;s Blog">
+<meta property="og:description" content="体系结构TCP/IP四层 应用层 传输层 网际层 网络接口层  TCP/IP五层 应用层 传输层 网络层 数据链路层 物理层  OSI七层 应用层 表现层 会话层 传输层 网络层 数据链路层 物理层  应用层HTTP协议超文本传输协议(Hyper Text Transfer Protocol),是一种建立在TCP桑的无状态连接。HTTP用于客户端与服务器之间的通信，规定了客户端和服务器之间的通信格">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-14T06:27:51.090Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="计算机基础之计算机网络(待完善)">
+<meta name="twitter:description" content="体系结构TCP/IP四层 应用层 传输层 网际层 网络接口层  TCP/IP五层 应用层 传输层 网络层 数据链路层 物理层  OSI七层 应用层 表现层 会话层 传输层 网络层 数据链路层 物理层  应用层HTTP协议超文本传输协议(Hyper Text Transfer Protocol),是一种建立在TCP桑的无状态连接。HTTP用于客户端与服务器之间的通信，规定了客户端和服务器之间的通信格">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yuzfds.cn/2019/03/01/计算机基础之计算机网络/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>计算机基础之计算机网络(待完善) | Yuzf's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Yuzf's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yuzfds.cn/2019/03/01/计算机基础之计算机网络/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yuzf">
+      <meta itemprop="description" content="江头未是风波恶，别有人间行路难">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yuzf's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">计算机基础之计算机网络(待完善)
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-01 22:33:41" itemprop="dateCreated datePublished" datetime="2019-03-01T22:33:41+08:00">2019-03-01</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-03-14 14:27:51" itemprop="dateModified" datetime="2019-03-14T14:27:51+08:00">2019-03-14</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机基础/" itemprop="url" rel="index"><span itemprop="name">计算机基础</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="体系结构"><a href="#体系结构" class="headerlink" title="体系结构"></a>体系结构</h2><h3 id="TCP-IP四层"><a href="#TCP-IP四层" class="headerlink" title="TCP/IP四层"></a>TCP/IP四层</h3><ul>
+<li>应用层</li>
+<li>传输层</li>
+<li>网际层</li>
+<li>网络接口层</li>
+</ul>
+<h3 id="TCP-IP五层"><a href="#TCP-IP五层" class="headerlink" title="TCP/IP五层"></a>TCP/IP五层</h3><ul>
+<li>应用层</li>
+<li>传输层</li>
+<li>网络层</li>
+<li>数据链路层</li>
+<li>物理层</li>
+</ul>
+<h3 id="OSI七层"><a href="#OSI七层" class="headerlink" title="OSI七层"></a>OSI七层</h3><ul>
+<li>应用层</li>
+<li>表现层</li>
+<li>会话层</li>
+<li>传输层</li>
+<li>网络层</li>
+<li>数据链路层</li>
+<li>物理层</li>
+</ul>
+<h2 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h2><h3 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h3><p>超文本传输协议(Hyper Text Transfer Protocol),是一种建立在TCP桑的无状态连接。HTTP用于客户端与服务器之间的通信，规定了客户端和服务器之间的通信格式。</p>
+<h4 id="报文格式"><a href="#报文格式" class="headerlink" title="报文格式"></a>报文格式</h4><p>一个HTTP的请求必定是由客户端发起，服务器端回复响应。服务器在没接收到请求之前是不会发送响应的</p>
+<h5 id="请求报文"><a href="#请求报文" class="headerlink" title="请求报文"></a>请求报文</h5><p>由请求行+请求头+空行+请求正文组成</p>
+<p>请求行格式为：方法+路径+HTTP版本</p>
+<p>请求头包含许多键值对</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="响应报文"><a href="#响应报文" class="headerlink" title="响应报文"></a>响应报文</h5><h4 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h4><h3 id="HTTPS"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS</h3><h3 id="DNS"><a href="#DNS" class="headerlink" title="DNS"></a>DNS</h3><h3 id="P2P"><a href="#P2P" class="headerlink" title="P2P"></a>P2P</h3><h2 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a>传输层</h2><h3 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h3><h4 id="TCP报文格式"><a href="#TCP报文格式" class="headerlink" title="TCP报文格式"></a>TCP报文格式</h4><h4 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h4><h4 id="四次挥手"><a href="#四次挥手" class="headerlink" title="四次挥手"></a>四次挥手</h4><h4 id="拥塞控制"><a href="#拥塞控制" class="headerlink" title="拥塞控制"></a>拥塞控制</h4><h4 id="滑动窗口机制"><a href="#滑动窗口机制" class="headerlink" title="滑动窗口机制"></a>滑动窗口机制</h4><h4 id="拆包与粘包"><a href="#拆包与粘包" class="headerlink" title="拆包与粘包"></a>拆包与粘包</h4><h3 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a>UDP</h3><h2 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h2><h3 id="IP"><a href="#IP" class="headerlink" title="IP"></a>IP</h3><h4 id="IPV4与IPV6"><a href="#IPV4与IPV6" class="headerlink" title="IPV4与IPV6"></a>IPV4与IPV6</h4><h4 id="IP分类"><a href="#IP分类" class="headerlink" title="IP分类"></a>IP分类</h4><h4 id="IP子网划分"><a href="#IP子网划分" class="headerlink" title="IP子网划分"></a>IP子网划分</h4><h3 id="ICMP"><a href="#ICMP" class="headerlink" title="ICMP"></a>ICMP</h3><h3 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h3><h4 id="路由协议"><a href="#路由协议" class="headerlink" title="路由协议"></a>路由协议</h4><h5 id="RIP"><a href="#RIP" class="headerlink" title="RIP"></a>RIP</h5><h5 id="OSPF"><a href="#OSPF" class="headerlink" title="OSPF"></a>OSPF</h5><h5 id="BGP"><a href="#BGP" class="headerlink" title="BGP"></a>BGP</h5><h4 id="路由算法"><a href="#路由算法" class="headerlink" title="路由算法"></a>路由算法</h4><h5 id="LS"><a href="#LS" class="headerlink" title="LS"></a>LS</h5><h5 id="DV"><a href="#DV" class="headerlink" title="DV"></a>DV</h5><h2 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h2><h3 id="PPP协议"><a href="#PPP协议" class="headerlink" title="PPP协议"></a>PPP协议</h3><h3 id="以太网"><a href="#以太网" class="headerlink" title="以太网"></a>以太网</h3>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/基础/" rel="tag"># 基础</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/27/Java工程师面试之Java基础/" rel="next" title="Java工程师面试之Java基础">
+                <i class="fa fa-chevron-left"></i> Java工程师面试之Java基础
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/02/计算机基础之操作系统/" rel="prev" title="计算机基础之操作系统(待完善)">
+                计算机基础之操作系统(待完善) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="yuzf">
+            
+              <p class="site-author-name" itemprop="name">yuzf</p>
+              <p class="site-description motion-element" itemprop="description">江头未是风波恶，别有人间行路难</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/yuzfds" title="GitHub &rarr; https://github.com/yuzfds" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#体系结构"><span class="nav-number">1.</span> <span class="nav-text">体系结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP-IP四层"><span class="nav-number">1.1.</span> <span class="nav-text">TCP/IP四层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP-IP五层"><span class="nav-number">1.2.</span> <span class="nav-text">TCP/IP五层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OSI七层"><span class="nav-number">1.3.</span> <span class="nav-text">OSI七层</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用层"><span class="nav-number">2.</span> <span class="nav-text">应用层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP协议"><span class="nav-number">2.1.</span> <span class="nav-text">HTTP协议</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#报文格式"><span class="nav-number">2.1.1.</span> <span class="nav-text">报文格式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#请求报文"><span class="nav-number">2.1.1.1.</span> <span class="nav-text">请求报文</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#响应报文"><span class="nav-number">2.1.1.2.</span> <span class="nav-text">响应报文</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#状态码"><span class="nav-number">2.1.2.</span> <span class="nav-text">状态码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTPS"><span class="nav-number">2.2.</span> <span class="nav-text">HTTPS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DNS"><span class="nav-number">2.3.</span> <span class="nav-text">DNS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#P2P"><span class="nav-number">2.4.</span> <span class="nav-text">P2P</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#传输层"><span class="nav-number">3.</span> <span class="nav-text">传输层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP"><span class="nav-number">3.1.</span> <span class="nav-text">TCP</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP报文格式"><span class="nav-number">3.1.1.</span> <span class="nav-text">TCP报文格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三次握手"><span class="nav-number">3.1.2.</span> <span class="nav-text">三次握手</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四次挥手"><span class="nav-number">3.1.3.</span> <span class="nav-text">四次挥手</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#拥塞控制"><span class="nav-number">3.1.4.</span> <span class="nav-text">拥塞控制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#滑动窗口机制"><span class="nav-number">3.1.5.</span> <span class="nav-text">滑动窗口机制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#拆包与粘包"><span class="nav-number">3.1.6.</span> <span class="nav-text">拆包与粘包</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UDP"><span class="nav-number">3.2.</span> <span class="nav-text">UDP</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络层"><span class="nav-number">4.</span> <span class="nav-text">网络层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#IP"><span class="nav-number">4.1.</span> <span class="nav-text">IP</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#IPV4与IPV6"><span class="nav-number">4.1.1.</span> <span class="nav-text">IPV4与IPV6</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IP分类"><span class="nav-number">4.1.2.</span> <span class="nav-text">IP分类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IP子网划分"><span class="nav-number">4.1.3.</span> <span class="nav-text">IP子网划分</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ICMP"><span class="nav-number">4.2.</span> <span class="nav-text">ICMP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#路由"><span class="nav-number">4.3.</span> <span class="nav-text">路由</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#路由协议"><span class="nav-number">4.3.1.</span> <span class="nav-text">路由协议</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#RIP"><span class="nav-number">4.3.1.1.</span> <span class="nav-text">RIP</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#OSPF"><span class="nav-number">4.3.1.2.</span> <span class="nav-text">OSPF</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#BGP"><span class="nav-number">4.3.1.3.</span> <span class="nav-text">BGP</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#路由算法"><span class="nav-number">4.3.2.</span> <span class="nav-text">路由算法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#LS"><span class="nav-number">4.3.2.1.</span> <span class="nav-text">LS</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#DV"><span class="nav-number">4.3.2.2.</span> <span class="nav-text">DV</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据链路层"><span class="nav-number">5.</span> <span class="nav-text">数据链路层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PPP协议"><span class="nav-number">5.1.</span> <span class="nav-text">PPP协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#以太网"><span class="nav-number">5.2.</span> <span class="nav-text">以太网</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yuzf</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.0.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/three/three.min.js"></script>
+
+  
+  <script src="/lib/three/three-waves.min.js"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.0"></script>
+
+  <script src="/js/src/motion.js?v=7.0.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.0"></script>
+<script src="/js/src/post-details.js?v=7.0.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=7.0.0"></script>
+
+
+  
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
