@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.0.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false,"dimmer":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="函数式编程：匿名函数、高阶函数、装饰器匿名函数高阶函数1. 变量可以指向函数例： 123456a = -12b = absprint(b)# 答案为 &amp;lt;built-in function abs&amp;gt;print(b(a))# 答案为 12 2. 可传入函数例： 12345def add(x, y, f):    return f(x)+f(y)c = add(-5,-8,abs)print">
+<meta name="keywords" content="基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python总结">
+<meta property="og:url" content="http://yuzfds.cn/2019/04/20/python总结/index.html">
+<meta property="og:site_name" content="Yuzf&#39;s Blog">
+<meta property="og:description" content="函数式编程：匿名函数、高阶函数、装饰器匿名函数高阶函数1. 变量可以指向函数例： 123456a = -12b = absprint(b)# 答案为 &amp;lt;built-in function abs&amp;gt;print(b(a))# 答案为 12 2. 可传入函数例： 12345def add(x, y, f):    return f(x)+f(y)c = add(-5,-8,abs)print">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-05-06T11:34:35.164Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python总结">
+<meta name="twitter:description" content="函数式编程：匿名函数、高阶函数、装饰器匿名函数高阶函数1. 变量可以指向函数例： 123456a = -12b = absprint(b)# 答案为 &amp;lt;built-in function abs&amp;gt;print(b(a))# 答案为 12 2. 可传入函数例： 12345def add(x, y, f):    return f(x)+f(y)c = add(-5,-8,abs)print">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yuzfds.cn/2019/04/20/python总结/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>python总结 | Yuzf's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Yuzf's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yuzfds.cn/2019/04/20/python总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yuzf">
+      <meta itemprop="description" content="江头未是风波恶，别有人间行路难">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yuzf's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">python总结
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-20 14:15:09" itemprop="dateCreated datePublished" datetime="2019-04-20T14:15:09+08:00">2019-04-20</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-05-06 19:34:35" itemprop="dateModified" datetime="2019-05-06T19:34:35+08:00">2019-05-06</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="函数式编程：匿名函数、高阶函数、装饰器"><a href="#函数式编程：匿名函数、高阶函数、装饰器" class="headerlink" title="函数式编程：匿名函数、高阶函数、装饰器"></a>函数式编程：匿名函数、高阶函数、装饰器</h2><h3 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h3><h3 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h3><h4 id="1-变量可以指向函数"><a href="#1-变量可以指向函数" class="headerlink" title="1. 变量可以指向函数"></a>1. 变量可以指向函数</h4><p>例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">-12</span></span><br><span class="line">b = abs</span><br><span class="line">print(b)</span><br><span class="line"><span class="comment"># 答案为 &lt;built-in function abs&gt;</span></span><br><span class="line">print(b(a))</span><br><span class="line"><span class="comment"># 答案为 12</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-可传入函数"><a href="#2-可传入函数" class="headerlink" title="2. 可传入函数"></a>2. 可传入函数</h4><p>例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(x, y, f)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> f(x)+f(y)</span><br><span class="line">c = add(<span class="number">-5</span>,<span class="number">-8</span>,abs)</span><br><span class="line">print(c)</span><br><span class="line"><span class="comment"># 答案为 13</span></span><br></pre></td></tr></table></figure>
+<h4 id="3-内建map-reduce函数"><a href="#3-内建map-reduce函数" class="headerlink" title="3. 内建map/reduce函数"></a>3. 内建map/reduce函数</h4><p>map接受两个参数，一个是function,另一个是Iterable，map将function作用于Iterable中的每个元素，返回新的Iterable。<br>例：用map将list中的每个元素都平方</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fun</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x*x</span><br><span class="line"></span><br><span class="line">list1 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line">list2 = map(fun, list1)</span><br><span class="line">print(list(list2))</span><br></pre></td></tr></table></figure>
+<p>reduce也是接受两个参数，一个是function,另一个是Iterable，reduce将function累积作用于Iterable<br>例1：就像这样</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fun</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x*x</span><br><span class="line">reduce(fun, [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>])</span><br><span class="line"><span class="comment">#计算过程为</span></span><br><span class="line"><span class="comment">#fun(1,2)</span></span><br><span class="line"><span class="comment">#fun(fun(1，2)，3)</span></span><br><span class="line"><span class="comment">#fun(fun(fun(1,2),3),4)</span></span><br></pre></td></tr></table></figure>
+<p>例2：list求和</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> reduce</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fun</span><span class="params">(a,b)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> a+b</span><br><span class="line"></span><br><span class="line">c=reduce(fun, [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>])</span><br><span class="line">print(c)</span><br></pre></td></tr></table></figure>
+<h4 id="4-内建filter函数"><a href="#4-内建filter函数" class="headerlink" title="4. 内建filter函数"></a>4. 内建filter函数</h4><p>reduce也是接受两个参数，一个是function,另一个是Iterable，filter将function作用于每个Iterable中的元素，更具返回值的true和false进行过滤</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">is_odd</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x%<span class="number">2</span>==<span class="number">1</span></span><br><span class="line"></span><br><span class="line">list(filter(is_odd, [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>]))</span><br></pre></td></tr></table></figure>
+<h4 id="5-内建sorted函数"><a href="#5-内建sorted函数" class="headerlink" title="5. 内建sorted函数"></a>5. 内建sorted函数</h4><p>接受参数Iterable进行排序，可以在接受一个key实现自定义排序</p>
+<p>例:根据绝对值排序</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sorted([<span class="number">11</span>,<span class="number">-23</span>,<span class="number">10</span>,<span class="number">-54</span>,<span class="number">-10</span>,<span class="number">9</span>],key=abs)</span><br></pre></td></tr></table></figure>
+<h4 id="6-返回函数，闭包"><a href="#6-返回函数，闭包" class="headerlink" title="6. 返回函数，闭包"></a>6. 返回函数，闭包</h4><h4 id="7-args与-kw"><a href="#7-args与-kw" class="headerlink" title="7. *args与**kw"></a>7. *args与**kw</h4><p>*args 非关键字参数，元组</p>
+<p>**kw 关键字参数，字典</p>
+<h3 id="装饰器"><a href="#装饰器" class="headerlink" title="装饰器"></a>装饰器</h3><h2 id="一切皆对象"><a href="#一切皆对象" class="headerlink" title="一切皆对象"></a>一切皆对象</h2><h2 id="魔法函数"><a href="#魔法函数" class="headerlink" title="魔法函数"></a>魔法函数</h2><h2 id="类与对象"><a href="#类与对象" class="headerlink" title="类与对象"></a>类与对象</h2><h2 id="自定义序列类"><a href="#自定义序列类" class="headerlink" title="自定义序列类"></a>自定义序列类</h2><h2 id="python的set和dict"><a href="#python的set和dict" class="headerlink" title="python的set和dict"></a>python的set和dict</h2><h2 id="对象引用，可变性郁垃圾回收"><a href="#对象引用，可变性郁垃圾回收" class="headerlink" title="对象引用，可变性郁垃圾回收"></a>对象引用，可变性郁垃圾回收</h2><h2 id="元类编程"><a href="#元类编程" class="headerlink" title="元类编程"></a>元类编程</h2><h2 id="迭代器与生成器"><a href="#迭代器与生成器" class="headerlink" title="迭代器与生成器"></a>迭代器与生成器</h2><h2 id="socket编程"><a href="#socket编程" class="headerlink" title="socket编程"></a>socket编程</h2><h2 id="多线程，多进程和线程池编程"><a href="#多线程，多进程和线程池编程" class="headerlink" title="多线程，多进程和线程池编程"></a>多线程，多进程和线程池编程</h2><h2 id="协程与异步io"><a href="#协程与异步io" class="headerlink" title="协程与异步io"></a>协程与异步io</h2><h2 id="asyncio并发编程"><a href="#asyncio并发编程" class="headerlink" title="asyncio并发编程"></a>asyncio并发编程</h2>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/基础/" rel="tag"># 基础</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/27/Java工程师面试之Java基础/" rel="next" title="Java工程师面试之Java基础">
+                <i class="fa fa-chevron-left"></i> Java工程师面试之Java基础
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/20/JavaScript总结/" rel="prev" title="JavaScript总结">
+                JavaScript总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="yuzf">
+            
+              <p class="site-author-name" itemprop="name">yuzf</p>
+              <p class="site-description motion-element" itemprop="description">江头未是风波恶，别有人间行路难</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/yuzfds" title="GitHub &rarr; https://github.com/yuzfds" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#函数式编程：匿名函数、高阶函数、装饰器"><span class="nav-number">1.</span> <span class="nav-text">函数式编程：匿名函数、高阶函数、装饰器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#匿名函数"><span class="nav-number">1.1.</span> <span class="nav-text">匿名函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高阶函数"><span class="nav-number">1.2.</span> <span class="nav-text">高阶函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-变量可以指向函数"><span class="nav-number">1.2.1.</span> <span class="nav-text">1. 变量可以指向函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-可传入函数"><span class="nav-number">1.2.2.</span> <span class="nav-text">2. 可传入函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-内建map-reduce函数"><span class="nav-number">1.2.3.</span> <span class="nav-text">3. 内建map/reduce函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-内建filter函数"><span class="nav-number">1.2.4.</span> <span class="nav-text">4. 内建filter函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-内建sorted函数"><span class="nav-number">1.2.5.</span> <span class="nav-text">5. 内建sorted函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-返回函数，闭包"><span class="nav-number">1.2.6.</span> <span class="nav-text">6. 返回函数，闭包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-args与-kw"><span class="nav-number">1.2.7.</span> <span class="nav-text">7. *args与**kw</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#装饰器"><span class="nav-number">1.3.</span> <span class="nav-text">装饰器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一切皆对象"><span class="nav-number">2.</span> <span class="nav-text">一切皆对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#魔法函数"><span class="nav-number">3.</span> <span class="nav-text">魔法函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类与对象"><span class="nav-number">4.</span> <span class="nav-text">类与对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义序列类"><span class="nav-number">5.</span> <span class="nav-text">自定义序列类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#python的set和dict"><span class="nav-number">6.</span> <span class="nav-text">python的set和dict</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象引用，可变性郁垃圾回收"><span class="nav-number">7.</span> <span class="nav-text">对象引用，可变性郁垃圾回收</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#元类编程"><span class="nav-number">8.</span> <span class="nav-text">元类编程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#迭代器与生成器"><span class="nav-number">9.</span> <span class="nav-text">迭代器与生成器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#socket编程"><span class="nav-number">10.</span> <span class="nav-text">socket编程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多线程，多进程和线程池编程"><span class="nav-number">11.</span> <span class="nav-text">多线程，多进程和线程池编程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#协程与异步io"><span class="nav-number">12.</span> <span class="nav-text">协程与异步io</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#asyncio并发编程"><span class="nav-number">13.</span> <span class="nav-text">asyncio并发编程</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yuzf</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.0.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/three/three.min.js"></script>
+
+  
+  <script src="/lib/three/three-waves.min.js"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.0"></script>
+
+  <script src="/js/src/motion.js?v=7.0.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.0"></script>
+<script src="/js/src/post-details.js?v=7.0.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=7.0.0"></script>
+
+
+  
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

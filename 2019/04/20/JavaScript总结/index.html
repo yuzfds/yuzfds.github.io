@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.0.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false,"dimmer":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="一、对象基础知识存储键值映射，可通过{}和其中的一些可选属性来创建。 12let user = new Object();let user = &amp;#123;&amp;#125;; 方括号除了可以用user.name来获取对象属性，还可以使用user[‘name’]来获取，因为在多词属性时，不可以用类似user.like birds这种语法来获取。还可以用以下方式获取。 12let key = &quot;like">
+<meta name="keywords" content="基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript总结">
+<meta property="og:url" content="http://yuzfds.cn/2019/04/20/JavaScript总结/index.html">
+<meta property="og:site_name" content="Yuzf&#39;s Blog">
+<meta property="og:description" content="一、对象基础知识存储键值映射，可通过{}和其中的一些可选属性来创建。 12let user = new Object();let user = &amp;#123;&amp;#125;; 方括号除了可以用user.name来获取对象属性，还可以使用user[‘name’]来获取，因为在多词属性时，不可以用类似user.like birds这种语法来获取。还可以用以下方式获取。 12let key = &quot;like">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-05-10T10:56:40.048Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript总结">
+<meta name="twitter:description" content="一、对象基础知识存储键值映射，可通过{}和其中的一些可选属性来创建。 12let user = new Object();let user = &amp;#123;&amp;#125;; 方括号除了可以用user.name来获取对象属性，还可以使用user[‘name’]来获取，因为在多词属性时，不可以用类似user.like birds这种语法来获取。还可以用以下方式获取。 12let key = &quot;like">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yuzfds.cn/2019/04/20/JavaScript总结/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>JavaScript总结 | Yuzf's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Yuzf's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yuzfds.cn/2019/04/20/JavaScript总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yuzf">
+      <meta itemprop="description" content="江头未是风波恶，别有人间行路难">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yuzf's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JavaScript总结
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-20 14:25:15" itemprop="dateCreated datePublished" datetime="2019-04-20T14:25:15+08:00">2019-04-20</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-05-10 18:56:40" itemprop="dateModified" datetime="2019-05-10T18:56:40+08:00">2019-05-10</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="一、对象"><a href="#一、对象" class="headerlink" title="一、对象"></a>一、对象</h2><h3 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h3><p>存储键值映射，可通过{}和其中的一些可选属性来创建。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> user = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line"><span class="keyword">let</span> user = &#123;&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="方括号"><a href="#方括号" class="headerlink" title="方括号"></a>方括号</h4><p>除了可以用user.name来获取对象属性，还可以使用user[‘name’]来获取，因为在多词属性时，不可以用类似user.like birds这种语法来获取。还可以用以下方式获取。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> key = <span class="string">"like birds"</span>;</span><br><span class="line">user[key] = <span class="string">"鸭子"</span>;</span><br></pre></td></tr></table></figure>
+<p>在对象字面量属性中使用[]，为计算属性，例：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> fruit = prompt(<span class="string">"Which fruit to buy?"</span>, <span class="string">"apple"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> bag = &#123;</span><br><span class="line">  [fruit]: <span class="number">5</span>, <span class="comment">// 属性名从 fruit 变量中计算</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">alert( bag.apple ); <span class="comment">// 5 如果 fruit="apple"</span></span><br></pre></td></tr></table></figure>
+<p>本质上与以下代码相同:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">et fruit = prompt(<span class="string">"Which fruit to buy?"</span>, <span class="string">"apple"</span>);</span><br><span class="line"><span class="keyword">let</span> bag = &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 从 fruit 变量中获取值</span></span><br><span class="line">bag[fruit] = <span class="number">5</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="属性值简写"><a href="#属性值简写" class="headerlink" title="属性值简写"></a>属性值简写</h4><p>实际应用中常常将存在的变量当作属性名。<br>例如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">makeUser</span>(<span class="params">name, age</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    name: name,</span><br><span class="line">    age: age</span><br><span class="line">    <span class="comment">// 其他的属性</span></span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> user = makeUser(<span class="string">"John"</span>, <span class="number">30</span>);</span><br><span class="line">alert(user.name); <span class="comment">// John</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//可简写为</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">makeUser</span>(<span class="params">name, age</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    name, <span class="comment">// 与 name: name 相同</span></span><br><span class="line">    age   <span class="comment">// 与 age: age 相同</span></span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="存在值检查"><a href="#存在值检查" class="headerlink" title="存在值检查"></a>存在值检查</h4><p>对象可以访问任何属性，如果该属性名没有值，或者不存在，也不会有错误，而是返回undefined。</p>
+<p>所以判断属性是否存在时可将获得的值与undefined比较。也可以使用一个特别的操作符”in”来检查是否属性存在。</p>
+<p>语法为：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"key"</span> <span class="keyword">in</span> object</span><br></pre></td></tr></table></figure>
+<h4 id="for-in循环"><a href="#for-in循环" class="headerlink" title="for in循环"></a>for in循环</h4><p>在遍历对象属性时可以使用for in</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> user = &#123;</span><br><span class="line">  name: <span class="string">"John"</span>,</span><br><span class="line">  age: <span class="number">30</span>,</span><br><span class="line">  isAdmin: <span class="literal">true</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> key <span class="keyword">in</span> user) &#123;</span><br><span class="line">  <span class="comment">// keys</span></span><br><span class="line">  alert( key );  <span class="comment">// name, age, isAdmin</span></span><br><span class="line">  <span class="comment">// 属性键的值</span></span><br><span class="line">  alert( user[key] ); <span class="comment">// John, 30, true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="引用复制"><a href="#引用复制" class="headerlink" title="引用复制"></a>引用复制</h4><p>原始类型：字符串，数字，布尔类型是整个赋值的，而对象是引用赋值的，变量将指向同一个地址，他们相等，如果两个引用指向地址不同即便值一样也是不相等的。</p>
+<p>例如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> user1 = &#123;&#125;;</span><br><span class="line"><span class="keyword">let</span> user2 = user1;</span><br><span class="line">alert(user1==user2) <span class="comment">//true</span></span><br><span class="line"><span class="keyword">let</span> user2 =&#123;&#125;</span><br><span class="line">alert(user1==user2) <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+<p>const修饰的对象中的属性是可变的。</p>
+<h4 id="比较引用"><a href="#比较引用" class="headerlink" title="比较引用"></a>比较引用</h4><p>等号==与严格等号===对于对象来说是没差别的，当两个引用指向同一个对象的时候他们相等。</p>
+<h4 id="赋值和合并"><a href="#赋值和合并" class="headerlink" title="赋值和合并"></a>赋值和合并</h4><p>那如何实现对象的深拷贝，可以创建新的对象，通过for in遍历要被复制的对象并赋值给新对象。</p>
+<p>也可以使用Object.assign实现</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.assign(dest[, src1, src2, src3...])</span><br></pre></td></tr></table></figure>
+<ul>
+<li>参数 dest 和 src1, …, srcN（可以有很多个）是对象。</li>
+<li>这个方法复制了 src1, …, srcN 的所有对象到 dest。换句话说，从第二个参数开始，所有对象的属性都复制给了第一个参数对象，然后返回 dest。</li>
+</ul>
+<p>该方法进行拷贝：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> user = &#123;</span><br><span class="line">  name: <span class="string">'李白'</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> clone = <span class="built_in">Object</span>.assign(&#123;&#125;, user);</span><br></pre></td></tr></table></figure>
+<p>改方法在对象中嵌套了对象时会出现问题，无法深拷贝被嵌套的对象，所以我们深拷贝时可以使用js的库lodash的方法_.cloneDeep(obj)</p>
+<h3 id="Symbol类型"><a href="#Symbol类型" class="headerlink" title="Symbol类型"></a>Symbol类型</h3><p>对象的key只能时String或者Symbol类型，String类型比较常见。</p>
+<h4 id="Symbol"><a href="#Symbol" class="headerlink" title="Symbol"></a>Symbol</h4><p>Symbol值表示唯一的标识符。</p>
+<p>可以使用Symbol()创建这种类型的值。</p>
+<p>例如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> id = <span class="built_in">Symbol</span>();</span><br></pre></td></tr></table></figure>
+<p>为了便于调试，可以给Symbol一个描述。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> id = <span class="built_in">Symbol</span>(<span class="string">'id'</span>);</span><br></pre></td></tr></table></figure>
+<p>描述相同的Symbol值是不一样的，且Symbol转成字符串时需要调用toString方法</p>
+<h4 id="隐藏属性"><a href="#隐藏属性" class="headerlink" title="隐藏属性"></a>隐藏属性</h4><p>Symbol 允许我们创建对象的“隐藏”属性，代码的任何其他部分都不能偶尔访问或重写这些属性。因为用Symbol作为键，在访问时必须用该Symbol去访问。</p>
+<p>如果想在字面量中使用Symbol则需要[]</p>
+<p>for in循环会跳过Symbol，Object.assign则不会。</p>
+<h4 id="全局Symbol"><a href="#全局Symbol" class="headerlink" title="全局Symbol"></a>全局Symbol</h4><p>每一个新建的Symbol都是不同的，所以我们如果想要相同名字的Symbol一致就必须用到全局Symbol注册表，在其中创建Symbol并且在之后可以通过它得到相同名字的Symbol。</p>
+<p>创建和读取都用Symbol.for(key)</p>
+<h4 id="Symbol-keyFor"><a href="#Symbol-keyFor" class="headerlink" title="Symbol.keyFor"></a>Symbol.keyFor</h4><p>Symbol.for(key)的一个反向调用，根据一个 全局Symbol获取它的名称。</p>
+<h4 id="系统Symbol"><a href="#系统Symbol" class="headerlink" title="系统Symbol"></a>系统Symbol</h4><p>js内部存在许多系统Symbol</p>
+<p>如：</p>
+<ul>
+<li>Symbol.hasInstance</li>
+<li>Symbol.isConcatSpreadable</li>
+<li>Symbol.iterator</li>
+<li>Symbol.toPrimitive</li>
+</ul>
+<p>等</p>
+<h3 id="对象原始值转换"><a href="#对象原始值转换" class="headerlink" title="对象原始值转换"></a>对象原始值转换</h3><h3 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h3><p>js的内存管理是自动的，所有我们创建的原始值，对象，函数等都是占用内存的。</p>
+<p>js的内存管理概念为可达性，与Java的垃圾回收在一定程度上具有相似性。</p>
+<p>将一些值作为根，从根出发，不可以通过引用到达的值将会被垃圾回收，在js引擎中有一个垃圾回收器在后台自动执行，监控所有对象的状态，并删除不可达对象。</p>
+<h3 id="对象方法与“this”"><a href="#对象方法与“this”" class="headerlink" title="对象方法与“this”"></a>对象方法与“this”</h3><h3 id="构造函数和操作符”new”"><a href="#构造函数和操作符”new”" class="headerlink" title="构造函数和操作符”new”"></a>构造函数和操作符”new”</h3><h2 id="二、数据类型"><a href="#二、数据类型" class="headerlink" title="二、数据类型"></a>二、数据类型</h2><h2 id="三、函数"><a href="#三、函数" class="headerlink" title="三、函数"></a>三、函数</h2><h2 id="四、面向对象"><a href="#四、面向对象" class="headerlink" title="四、面向对象"></a>四、面向对象</h2><h2 id="五、错误处理"><a href="#五、错误处理" class="headerlink" title="五、错误处理"></a>五、错误处理</h2><h2 id="六、Document"><a href="#六、Document" class="headerlink" title="六、Document"></a>六、Document</h2><h2 id="七、事件简介"><a href="#七、事件简介" class="headerlink" title="七、事件简介"></a>七、事件简介</h2><h2 id="八、事件细节"><a href="#八、事件细节" class="headerlink" title="八、事件细节"></a>八、事件细节</h2><h2 id="九、表单，控件"><a href="#九、表单，控件" class="headerlink" title="九、表单，控件"></a>九、表单，控件</h2><h2 id="十、动画"><a href="#十、动画" class="headerlink" title="十、动画"></a>十、动画</h2><h2 id="十一、框架和窗口"><a href="#十一、框架和窗口" class="headerlink" title="十一、框架和窗口"></a>十一、框架和窗口</h2><h2 id="十二、正则"><a href="#十二、正则" class="headerlink" title="十二、正则"></a>十二、正则</h2><h2 id="十三、Promise，async-await"><a href="#十三、Promise，async-await" class="headerlink" title="十三、Promise，async/await"></a>十三、Promise，async/await</h2><h2 id="十四、网络请求：AJAX和COMET"><a href="#十四、网络请求：AJAX和COMET" class="headerlink" title="十四、网络请求：AJAX和COMET"></a>十四、网络请求：AJAX和COMET</h2>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/基础/" rel="tag"># 基础</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/20/python总结/" rel="next" title="python总结">
+                <i class="fa fa-chevron-left"></i> python总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/06/Docker总结/" rel="prev" title="Docker总结">
+                Docker总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="yuzf">
+            
+              <p class="site-author-name" itemprop="name">yuzf</p>
+              <p class="site-description motion-element" itemprop="description">江头未是风波恶，别有人间行路难</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/yuzfds" title="GitHub &rarr; https://github.com/yuzfds" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、对象"><span class="nav-number">1.</span> <span class="nav-text">一、对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基础知识"><span class="nav-number">1.1.</span> <span class="nav-text">基础知识</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方括号"><span class="nav-number">1.1.1.</span> <span class="nav-text">方括号</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#属性值简写"><span class="nav-number">1.1.2.</span> <span class="nav-text">属性值简写</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#存在值检查"><span class="nav-number">1.1.3.</span> <span class="nav-text">存在值检查</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#for-in循环"><span class="nav-number">1.1.4.</span> <span class="nav-text">for in循环</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#引用复制"><span class="nav-number">1.1.5.</span> <span class="nav-text">引用复制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#比较引用"><span class="nav-number">1.1.6.</span> <span class="nav-text">比较引用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#赋值和合并"><span class="nav-number">1.1.7.</span> <span class="nav-text">赋值和合并</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Symbol类型"><span class="nav-number">1.2.</span> <span class="nav-text">Symbol类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Symbol"><span class="nav-number">1.2.1.</span> <span class="nav-text">Symbol</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#隐藏属性"><span class="nav-number">1.2.2.</span> <span class="nav-text">隐藏属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#全局Symbol"><span class="nav-number">1.2.3.</span> <span class="nav-text">全局Symbol</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Symbol-keyFor"><span class="nav-number">1.2.4.</span> <span class="nav-text">Symbol.keyFor</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#系统Symbol"><span class="nav-number">1.2.5.</span> <span class="nav-text">系统Symbol</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象原始值转换"><span class="nav-number">1.3.</span> <span class="nav-text">对象原始值转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#垃圾回收"><span class="nav-number">1.4.</span> <span class="nav-text">垃圾回收</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象方法与“this”"><span class="nav-number">1.5.</span> <span class="nav-text">对象方法与“this”</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构造函数和操作符”new”"><span class="nav-number">1.6.</span> <span class="nav-text">构造函数和操作符”new”</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、数据类型"><span class="nav-number">2.</span> <span class="nav-text">二、数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、函数"><span class="nav-number">3.</span> <span class="nav-text">三、函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、面向对象"><span class="nav-number">4.</span> <span class="nav-text">四、面向对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、错误处理"><span class="nav-number">5.</span> <span class="nav-text">五、错误处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六、Document"><span class="nav-number">6.</span> <span class="nav-text">六、Document</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#七、事件简介"><span class="nav-number">7.</span> <span class="nav-text">七、事件简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#八、事件细节"><span class="nav-number">8.</span> <span class="nav-text">八、事件细节</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#九、表单，控件"><span class="nav-number">9.</span> <span class="nav-text">九、表单，控件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十、动画"><span class="nav-number">10.</span> <span class="nav-text">十、动画</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十一、框架和窗口"><span class="nav-number">11.</span> <span class="nav-text">十一、框架和窗口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十二、正则"><span class="nav-number">12.</span> <span class="nav-text">十二、正则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十三、Promise，async-await"><span class="nav-number">13.</span> <span class="nav-text">十三、Promise，async/await</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十四、网络请求：AJAX和COMET"><span class="nav-number">14.</span> <span class="nav-text">十四、网络请求：AJAX和COMET</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yuzf</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.0.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/three/three.min.js"></script>
+
+  
+  <script src="/lib/three/three-waves.min.js"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.0"></script>
+
+  <script src="/js/src/motion.js?v=7.0.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.0"></script>
+<script src="/js/src/post-details.js?v=7.0.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=7.0.0"></script>
+
+
+  
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

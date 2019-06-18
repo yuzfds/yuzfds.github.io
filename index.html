@@ -339,7 +339,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yuzfds.cn/2019/03/02/计算机基础之操作系统/">
+    <link itemprop="mainEntityOfPage" href="http://yuzfds.cn/2019/05/11/Go语言总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yuzf">
@@ -359,7 +359,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/03/02/计算机基础之操作系统/" class="post-title-link" itemprop="url">计算机基础之操作系统(待完善)</a>
+                <a href="/2019/05/11/Go语言总结/" class="post-title-link" itemprop="url">Go语言总结</a>
               
             
           </h1>
@@ -384,46 +384,16 @@
                 
               
 
-              <time title="创建时间：2019-03-02 02:01:13" itemprop="dateCreated datePublished" datetime="2019-03-02T02:01:13+08:00">2019-03-02</time>
+              <time title="创建时间：2019-05-11 20:33:01 / 修改时间：22:24:08" itemprop="dateCreated datePublished" datetime="2019-05-11T20:33:01+08:00">2019-05-11</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-03-12 14:55:09" itemprop="dateModified" datetime="2019-03-12T14:55:09+08:00">2019-03-12</time>
               
             
           </span>
 
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机基础/" itemprop="url" rel="index"><span itemprop="name">计算机基础</span></a></span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -455,133 +425,40 @@
       
         
           
-            <h1 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>操作系统是管理计算机软件与硬件资源的计算机程序。</p>
-<p>其目标为：方便性、有雄心、可扩充性、开放性</p>
-<p>作为软件接口，给用户提供三种方式：命令方式，系统调用方式，图形窗口方式。</p>
-<p>发展：</p>
-<ul>
-<li><p>无操作系统 1945年 用户独占 CPU等待人工操作</p>
+            <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><h3 id="诞生原因"><a href="#诞生原因" class="headerlink" title="诞生原因"></a>诞生原因</h3><p>为应对多核架构，超大规模分布式计算集群，Web模式导致的前所未有的开发规模和更新速度。</p>
+<h3 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h3><ul>
+<li><p>简单 25个关键字</p>
 </li>
-<li><p>单批道处理 50年代 投票及 自动性 顺序性 单道性</p>
+<li><p>高效 编译强类型，垃圾回收，指针操作</p>
 </li>
-<li><p>多批道处理 60年代 多道性 无序性 调度性</p>
-</li>
-<li><p>分时系统 60年代</p>
-</li>
-<li><p>实时系统 60年代</p>
+<li><p>生产力 接口</p>
 </li>
 </ul>
-<h3 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h3><p>并发性：并发与并行的概念是不同的，并行性是指两个或多个事件在同一时刻发生，而并发性指两个或多个事件在同一时间间隔内发生。</p>
-<p>共享性： 两种资源共享方式，互斥共享与同时访问</p>
-<p>虚拟性：通过技术吧一个物理实体变成若干个逻辑上的对应物，如：虚拟处理机，虚拟内存，虚拟外部设备，虚拟信道等。通过分时实现</p>
-<p>异步性：进程以人们不可预知的速度向前推进</p>
-<h2 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h2><h3 id="进程概念"><a href="#进程概念" class="headerlink" title="进程概念"></a>进程概念</h3><p>进程：程序在并发执行环境中，资源分配和独立运行的基本单位。<br>线程： 系统能够进行运算调度的最小单位，被包含在进程中。</p>
-<h4 id="并发执行特性："><a href="#并发执行特性：" class="headerlink" title="并发执行特性："></a>并发执行特性：</h4><ul>
-<li>间断性</li>
-<li>失去封闭性</li>
-<li>不可再现性</li>
+<h2 id="一、语言基础"><a href="#一、语言基础" class="headerlink" title="一、语言基础"></a>一、语言基础</h2><h3 id="变量、常量、以及其他语言差异"><a href="#变量、常量、以及其他语言差异" class="headerlink" title="变量、常量、以及其他语言差异"></a>变量、常量、以及其他语言差异</h3><p>赋值方式一</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a <span class="keyword">int</span> = <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>赋值方式二</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> (</span><br><span class="line">a <span class="keyword">int</span> = <span class="number">1</span></span><br><span class="line">b =<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">a,b = <span class="number">1</span>,<span class="number">2</span></span><br></pre></td></tr></table></figure>
+<p>赋值方式三</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a:=<span class="number">1</span></span><br><span class="line">b:=<span class="number">2</span></span><br></pre></td></tr></table></figure>
+<p>常量</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span>(</span><br><span class="line">  Monday = <span class="literal">iota</span> + <span class="number">1</span></span><br><span class="line">  Tuesday</span><br><span class="line">)</span><br><span class="line"><span class="keyword">const</span>(</span><br><span class="line">  Open = <span class="number">1</span> &lt;&lt; <span class="literal">iota</span></span><br><span class="line">  Close</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><ul>
+<li>bool</li>
+<li>string</li>
+<li>byte //alias for uint8</li>
+<li>int int8 int16 int32 int64</li>
+<li>uint uint8 uint16 uint32 uint64 uintptr</li>
+<li>rune //alias for int32</li>
+<li>float32 float64</li>
+<li>complex64 complex128</li>
 </ul>
-<h4 id="进程特征："><a href="#进程特征：" class="headerlink" title="进程特征："></a>进程特征：</h4><ul>
-<li>结构特征：PCB(Process Control Block),程序段与数据段</li>
-<li>动态性</li>
-<li>并发性</li>
-<li>异步性</li>
-</ul>
-<h4 id="进程与程序的关系："><a href="#进程与程序的关系：" class="headerlink" title="进程与程序的关系："></a>进程与程序的关系：</h4><ul>
-<li>进程是一个动态概念，程序算是一个静态概念</li>
-<li>进程具有并行特征，程序没有</li>
-<li>进程是竞争资源的基本单位</li>
-<li>一个程序对应多个进程，一个进程为多个程序服务</li>
-</ul>
-<h4 id="进程的三个基本状态："><a href="#进程的三个基本状态：" class="headerlink" title="进程的三个基本状态："></a>进程的三个基本状态：</h4><ul>
-<li>就绪态</li>
-<li>执行态</li>
-<li>阻塞态</li>
-</ul>
-<h4 id="进程控制块-待完善"><a href="#进程控制块-待完善" class="headerlink" title="进程控制块(待完善)"></a>进程控制块(待完善)</h4><h4 id="进程控制"><a href="#进程控制" class="headerlink" title="进程控制"></a>进程控制</h4><p>进程管理中最基本的的功能是进程控制<br>进程控制任务：进程的创建、终止、进程状态的转变等</p>
-<p>进程控制一般由OS内核来实现</p>
-<p>子进程可以基础父进程的资源</p>
-<h3 id="进程状态图-待完善"><a href="#进程状态图-待完善" class="headerlink" title="进程状态图(待完善)"></a>进程状态图(待完善)</h3><ul>
-<li>挂起状态</li>
-</ul>
-<h3 id="进程同步"><a href="#进程同步" class="headerlink" title="进程同步"></a>进程同步</h3><h3 id="经典同步问题"><a href="#经典同步问题" class="headerlink" title="经典同步问题"></a>经典同步问题</h3><h4 id="生产者-消费者"><a href="#生产者-消费者" class="headerlink" title="生产者-消费者"></a>生产者-消费者</h4><h4 id="哲学家就餐"><a href="#哲学家就餐" class="headerlink" title="哲学家就餐"></a>哲学家就餐</h4><h4 id="读者-写者问题"><a href="#读者-写者问题" class="headerlink" title="读者-写者问题"></a>读者-写者问题</h4><h3 id="进程通信"><a href="#进程通信" class="headerlink" title="进程通信"></a>进程通信</h3><p>进程间的信息交换</p>
-<p>低级通信：进程的互斥和同步</p>
-<h2 id="处理机调度与死锁"><a href="#处理机调度与死锁" class="headerlink" title="处理机调度与死锁"></a>处理机调度与死锁</h2><h3 id="调度层次"><a href="#调度层次" class="headerlink" title="调度层次"></a>调度层次</h3><p>一个批处理作业从进入系统并驻留在外村的后被队列开始，直至作业运行完毕，可能要经历的三级调度：</p>
-<ul>
-<li><p>高级调度，又称作业调度，长程调度，接纳调度。作用是把外村上出狱后被队列的作业调入内存，并为它们创建进程，分配资源，排在就绪队列上，准备执行。分时，实时系统通常不要作业调度。</p>
-</li>
-<li><p>低级调度，也称为进程调度、短程调度，作用是决定就绪队列中的那个进程应获得处理机，然后由分派程序把处理及分配给该进程的具体操作</p>
-<ul>
-<li><p>非抢占方式，一旦处理机分配给某进程后，便让该进程一直执行，直至该进程完成或阻塞时，才在把处理机分配给其他进程。<br>在采用非抢占式方式时，可能引起进程调度的因素可归结为这样几个：1.正在执行的进程执行完毕，或因发生某事件而不能再继续执行，2.执行的进程因提出I/O请求而暂停执行，3.再进程通信和同步过程中执行了某种原语操作，如P操作、Block原语、Wakeup原语等。该调度方式有点事实现简单，系统开销小，适用于大多数批处理系统环境，但它难以满足紧急任务的要求————立即执行，因而可能造成那一预料的后果。显然哦求比较严格的实时系统中，不宜采用这种调度方式。</p>
-</li>
-<li><p>抢占方式暂停正在执行的进程，将处理机分派给另一进程，优先权原则，短作业优先原则，时间片轮转。</p>
-</li>
-<li><p>中级调度，又称中度调度，为提高内存利用率和系统吞吐量，使哪些暂时不能运行的进程不在占用宝贵的内存资源，而将它们调至外存上去等待，把此时的进程状态称为就绪驻外存状态或者挂起状态。当这些进程重又具备运行条件、且内存又稍有空闲时，由中级调度来决定把外村上那些又具备运行条件的就绪进程，重新调入内存，并修改其状态为就绪状态，挂在就绪队列上等待进程调度。又称对换</p>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="调度模型与准则"><a href="#调度模型与准则" class="headerlink" title="调度模型与准则"></a>调度模型与准则</h3><ul>
-<li><p>仅有进程调度的调度队列模型，通常把就绪进程组织成FIFO队列，每当创建新进程时排在就绪队列的末尾，按时间片轮转方式运行。进程再执行时，出现三种情况：</p>
-<ul>
-<li><p>任务在时间片内完成，进程便在释放处理机后进入完成状态。</p>
-</li>
-<li><p>任务在时间片内未完成，OS便将该人物再放在就绪队列末尾</p>
-</li>
-<li><p>在执行期间，进程因为某事而被阻塞后，将放入阻塞队列。</p>
-</li>
-</ul>
-</li>
-<li><p>具有高级和低级调度的调度队列模型<br>与前一模型的差别：</p>
-<ul>
-<li><p>就绪队列的形式。批处理系统中最常用的就是优先权队列。也可采用无序链表方式。</p>
-</li>
-<li><p>设置多个阻塞队列。</p>
-</li>
-</ul>
-</li>
-<li><p>同时具有三级调度的调度队列模型</p>
-<p>调出时，可使进程状态由内存就绪变为外存就绪，由内存阻塞转变为外存阻塞，在中级调度使外存就绪变为内存就绪。</p>
-</li>
-</ul>
-<h3 id="调度算法"><a href="#调度算法" class="headerlink" title="调度算法"></a>调度算法</h3><h4 id="选择调度算法的方式与准则"><a href="#选择调度算法的方式与准则" class="headerlink" title="选择调度算法的方式与准则"></a>选择调度算法的方式与准则</h4><ul>
-<li><p>面向用户准则</p>
-<ul>
-<li><p>周转时间短</p>
-</li>
-<li><p>响应时间块</p>
-</li>
-<li><p>截止时间的保证</p>
-</li>
-<li><p>优先权准则</p>
-</li>
-</ul>
-</li>
-<li><p>面向系统的准则</p>
-<ul>
-<li><p>系统吞吐量高</p>
-</li>
-<li><p>处理机功率好</p>
-</li>
-<li><p>各类资源的平衡利用</p>
-</li>
-</ul>
-</li>
-</ul>
-<p>周转时间：从作业被提交给系统开始，到作业完成位置的这段时间间隔称作作业周转时间。包括四部分时间：</p>
-<ul>
-<li><p>在外存后备队列上等待调度的时间</p>
-</li>
-<li><p>进程在就绪队列上等待调度的时间</p>
-</li>
-<li><p>进程在CPU上执行的时间</p>
-</li>
-<li><p>进程等待IO完成的时间</p>
-</li>
-</ul>
-<p>平均周转时间：</p>
-<p>带权周转时间：</p>
-<h3 id="死锁的原因与必要条件"><a href="#死锁的原因与必要条件" class="headerlink" title="死锁的原因与必要条件"></a>死锁的原因与必要条件</h3><h3 id="预防死锁的方法"><a href="#预防死锁的方法" class="headerlink" title="预防死锁的方法"></a>预防死锁的方法</h3><h3 id="死锁的检测与解除"><a href="#死锁的检测与解除" class="headerlink" title="死锁的检测与解除"></a>死锁的检测与解除</h3><h2 id="存储器管理"><a href="#存储器管理" class="headerlink" title="存储器管理"></a>存储器管理</h2><h3 id="存储器结构层次"><a href="#存储器结构层次" class="headerlink" title="存储器结构层次"></a>存储器结构层次</h3><h3 id="程序装入与连接"><a href="#程序装入与连接" class="headerlink" title="程序装入与连接"></a>程序装入与连接</h3><h3 id="连续分配方式"><a href="#连续分配方式" class="headerlink" title="连续分配方式"></a>连续分配方式</h3><h3 id="基本分页存储管理方式"><a href="#基本分页存储管理方式" class="headerlink" title="基本分页存储管理方式"></a>基本分页存储管理方式</h3><h3 id="基本分段存储管理方式"><a href="#基本分段存储管理方式" class="headerlink" title="基本分段存储管理方式"></a>基本分段存储管理方式</h3><h3 id="虚拟存储器概念"><a href="#虚拟存储器概念" class="headerlink" title="虚拟存储器概念"></a>虚拟存储器概念</h3><h3 id="请求分页存储管理方式"><a href="#请求分页存储管理方式" class="headerlink" title="请求分页存储管理方式"></a>请求分页存储管理方式</h3><h3 id="页面置换算法"><a href="#页面置换算法" class="headerlink" title="页面置换算法"></a>页面置换算法</h3><h2 id="设备管理"><a href="#设备管理" class="headerlink" title="设备管理"></a>设备管理</h2><h3 id="I-O系统"><a href="#I-O系统" class="headerlink" title="I/O系统"></a>I/O系统</h3><h3 id="I-O控制方式"><a href="#I-O控制方式" class="headerlink" title="I/O控制方式"></a>I/O控制方式</h3><h3 id="Linux中的5种IO模型"><a href="#Linux中的5种IO模型" class="headerlink" title="Linux中的5种IO模型"></a>Linux中的5种IO模型</h3><h3 id="缓冲管理"><a href="#缓冲管理" class="headerlink" title="缓冲管理"></a>缓冲管理</h3><h3 id="设备分配"><a href="#设备分配" class="headerlink" title="设备分配"></a>设备分配</h3><h3 id="磁盘存储器管理"><a href="#磁盘存储器管理" class="headerlink" title="磁盘存储器管理"></a>磁盘存储器管理</h3><h2 id="文件管理"><a href="#文件管理" class="headerlink" title="文件管理"></a>文件管理</h2><h3 id="文件与文件系统"><a href="#文件与文件系统" class="headerlink" title="文件与文件系统"></a>文件与文件系统</h3><h3 id="文件的逻辑结构"><a href="#文件的逻辑结构" class="headerlink" title="文件的逻辑结构"></a>文件的逻辑结构</h3><h3 id="外存分配方式"><a href="#外存分配方式" class="headerlink" title="外存分配方式"></a>外存分配方式</h3><h3 id="目录管理"><a href="#目录管理" class="headerlink" title="目录管理"></a>目录管理</h3><h3 id="文件存储空间管理"><a href="#文件存储空间管理" class="headerlink" title="文件存储空间管理"></a>文件存储空间管理</h3><h3 id="文件共享与保护"><a href="#文件共享与保护" class="headerlink" title="文件共享与保护"></a>文件共享与保护</h3>
+<p>go不支持隐式转换，即便是别名也需要显示转换</p>
+<p>指针类型不支持指针运算</p>
+<p>string是值类型，期末让你的初始值为空字符串而不是nil</p>
+<h3 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h3><p>算术运算符</p>
+<p>++ – 只支持后置</p>
+<p>用==比较数组，数组维数相等且长度相等可用==比较，每个元素相同为true</p>
+<h3 id="条件和循环"><a href="#条件和循环" class="headerlink" title="条件和循环"></a>条件和循环</h3><h3 id="数组和切片"><a href="#数组和切片" class="headerlink" title="数组和切片"></a>数组和切片</h3><h3 id="Map声明、元素访问以及遍历"><a href="#Map声明、元素访问以及遍历" class="headerlink" title="Map声明、元素访问以及遍历"></a>Map声明、元素访问以及遍历</h3><h3 id="Map与工厂模式，在Go语言中实现Set"><a href="#Map与工厂模式，在Go语言中实现Set" class="headerlink" title="Map与工厂模式，在Go语言中实现Set"></a>Map与工厂模式，在Go语言中实现Set</h3><h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><h2 id="二、语言进阶"><a href="#二、语言进阶" class="headerlink" title="二、语言进阶"></a>二、语言进阶</h2><h3 id="Go语言函数"><a href="#Go语言函数" class="headerlink" title="Go语言函数"></a>Go语言函数</h3><h3 id="可变参数和defer"><a href="#可变参数和defer" class="headerlink" title="可变参数和defer"></a>可变参数和defer</h3><h3 id="行为的定义和实现"><a href="#行为的定义和实现" class="headerlink" title="行为的定义和实现"></a>行为的定义和实现</h3><h3 id="Go语言的相关接口"><a href="#Go语言的相关接口" class="headerlink" title="Go语言的相关接口"></a>Go语言的相关接口</h3><h3 id="扩展和复用"><a href="#扩展和复用" class="headerlink" title="扩展和复用"></a>扩展和复用</h3><h3 id="不一样的接口类型，一样的多态"><a href="#不一样的接口类型，一样的多态" class="headerlink" title="不一样的接口类型，一样的多态"></a>不一样的接口类型，一样的多态</h3><h3 id="编写好的错误处理"><a href="#编写好的错误处理" class="headerlink" title="编写好的错误处理"></a>编写好的错误处理</h3><h3 id="panic和recover"><a href="#panic和recover" class="headerlink" title="panic和recover"></a>panic和recover</h3><h3 id="构建可复用的模块-包"><a href="#构建可复用的模块-包" class="headerlink" title="构建可复用的模块(包)"></a>构建可复用的模块(包)</h3><h3 id="依赖管理"><a href="#依赖管理" class="headerlink" title="依赖管理"></a>依赖管理</h3><h3 id="协程机制"><a href="#协程机制" class="headerlink" title="协程机制"></a>协程机制</h3><h3 id="共享内存并发机制"><a href="#共享内存并发机制" class="headerlink" title="共享内存并发机制"></a>共享内存并发机制</h3><h3 id="CSP并发机制"><a href="#CSP并发机制" class="headerlink" title="CSP并发机制"></a>CSP并发机制</h3>
           
         
       
@@ -637,7 +514,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yuzfds.cn/2019/03/01/计算机基础之计算机网络/">
+    <link itemprop="mainEntityOfPage" href="http://yuzfds.cn/2019/05/11/redis总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yuzf">
@@ -657,7 +534,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/03/01/计算机基础之计算机网络/" class="post-title-link" itemprop="url">计算机基础之计算机网络(待完善)</a>
+                <a href="/2019/05/11/redis总结/" class="post-title-link" itemprop="url">redis总结</a>
               
             
           </h1>
@@ -682,7 +559,149 @@
                 
               
 
-              <time title="创建时间：2019-03-01 22:33:41" itemprop="dateCreated datePublished" datetime="2019-03-01T22:33:41+08:00">2019-03-01</time>
+              <time title="创建时间：2019-05-11 20:12:54 / 修改时间：20:22:11" itemprop="dateCreated datePublished" datetime="2019-05-11T20:12:54+08:00">2019-05-11</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yuzfds.cn/2019/05/06/Docker总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yuzf">
+      <meta itemprop="description" content="江头未是风波恶，别有人间行路难">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yuzf's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/05/06/Docker总结/" class="post-title-link" itemprop="url">Docker总结</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-06 19:36:27" itemprop="dateCreated datePublished" datetime="2019-05-06T19:36:27+08:00">2019-05-06</time>
             
 
             
@@ -699,7 +718,515 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-14 14:27:51" itemprop="dateModified" datetime="2019-03-14T14:27:51+08:00">2019-03-14</time>
+                <time title="修改时间：2019-05-11 20:07:34" itemprop="dateModified" datetime="2019-05-11T20:07:34+08:00">2019-05-11</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="一、Docker基础"><a href="#一、Docker基础" class="headerlink" title="一、Docker基础"></a>一、Docker基础</h2><h3 id="Docker架构说明"><a href="#Docker架构说明" class="headerlink" title="Docker架构说明"></a>Docker架构说明</h3><p><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1557248482552&amp;di=7a4687ef725e43a2b17a6c141cfd1fae&amp;imgtype=0&amp;src=http%3A%2F%2Fwww.178linux.com%2Fwp-content%2Fuploads%2F2018%2F08%2F4.png,&quot;Docker架构&quot;" alt="Docker架构"></p>
+<blockquote>
+<p>Docker采用Clien/Server架构。客户端向服务器发送请求，服务器负责构建、运行和分发容器。客户端和服务器可以运行再一个HOST上，客户端也可以通过socket和REST API与远程的服务器进行通信。</p>
+</blockquote>
+<h3 id="主要组件与概念介绍"><a href="#主要组件与概念介绍" class="headerlink" title="主要组件与概念介绍"></a>主要组件与概念介绍</h3><p>Docker包括三个基本概念：</p>
+<ul>
+<li>镜像(Image)</li>
+<li>容器(Container)</li>
+<li>仓库(Repository)</li>
+</ul>
+<h4 id="镜像"><a href="#镜像" class="headerlink" title="镜像"></a>镜像</h4><p>docker镜像就是一个特殊的文件系统，除了提供容器运行时所需的程序，库，资源，配置等文件外，还包含了一些为运行时准备的一些配置参数(如匿名卷，环境变量，用户等)。镜像不包含任何动态数据，其内容在构建后也不会被改变。</p>
+<p>镜像时层层构建的。</p>
+<h4 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h4><p>镜像与容器的关系就像面向对象编程中，类与实例的关系，镜像时静态的定义，容器时运行时的实体，容器可以被创建启动，停止，暂停，删除</p>
+<p>容器的实质是进程，但与直接在宿主机上执行的进程不同，它有自己独立的命名空间。在隔离的环境中运行，就像实在独立于宿主的系统下操作一样。</p>
+<h4 id="仓库"><a href="#仓库" class="headerlink" title="仓库"></a>仓库</h4><p>Docker Registry是集中的存储和分发镜像的服务，一个Docker Registry中可以包含多个仓库(Repository)；每个仓库可以包含多个标签(Tag)，每个标签对应一个镜像。</p>
+<p>通常一个仓库会包含一个软件的不同版本的镜像，标签就是对版本的标识。</p>
+<p>可以搭建私有的Docker Registry。</p>
+<h2 id="二、容器技术"><a href="#二、容器技术" class="headerlink" title="二、容器技术"></a>二、容器技术</h2><h3 id="Cgroup"><a href="#Cgroup" class="headerlink" title="Cgroup"></a>Cgroup</h3><p>Cgroup用于对进程进行资源利用上的限制或控制，全称为Linux Control Group，是内核的一个功能用来限制，控制与分离一个进程组群的资源（如CPU、内存、磁盘输入输出等）</p>
+<h3 id="NameSpace"><a href="#NameSpace" class="headerlink" title="NameSpace"></a>NameSpace</h3><p>用于隔离内核资源，让一些进程只看到与自己相关的资源，讲进程隔离开来，提供了IPC，NetWork,Mount,PID,User,UTS这些隔离能力，使得不同的命名空间可以有自己独立的共享内存，网络，进程控件，用户，挂载点和文件系统。帮助完成轻量级的虚拟化。</p>
+<h2 id="三、Docker镜像"><a href="#三、Docker镜像" class="headerlink" title="三、Docker镜像"></a>三、Docker镜像</h2><h3 id="镜像基本操作"><a href="#镜像基本操作" class="headerlink" title="镜像基本操作"></a>镜像基本操作</h3><h4 id="1-获取镜像"><a href="#1-获取镜像" class="headerlink" title="1. 获取镜像"></a>1. 获取镜像</h4><blockquote>
+<p>docker pull [选项] [Docker Registry 地址[:端口号]/]仓库名[:标签]</p>
+</blockquote>
+<p>下载时可以看出Docker镜像的分层存储概念</p>
+<h4 id="2-列出镜像"><a href="#2-列出镜像" class="headerlink" title="2. 列出镜像"></a>2. 列出镜像</h4><blockquote>
+<p>docker image ls</p>
+</blockquote>
+<p>列表包含，仓库名，标签，镜像ID，创建时间以及所占用空间。</p>
+<h4 id="3-删除本地镜像"><a href="#3-删除本地镜像" class="headerlink" title="3. 删除本地镜像"></a>3. 删除本地镜像</h4><blockquote>
+<p>docker image rm [选项] &lt;镜像1&gt; [&lt;镜像2&gt;]</p>
+</blockquote>
+<p>可以使用镜像名或者镜像ID来删除镜像。</p>
+<p>可以使用docker image ls 配合删除</p>
+<p>例如</p>
+<blockquote>
+<p>docker image rm $(docker image ls -q redis)</p>
+</blockquote>
+<h3 id="私有镜像仓库"><a href="#私有镜像仓库" class="headerlink" title="私有镜像仓库"></a>私有镜像仓库</h3><h3 id="镜像组织结构"><a href="#镜像组织结构" class="headerlink" title="镜像组织结构"></a>镜像组织结构</h3><h4 id="base镜像"><a href="#base镜像" class="headerlink" title="base镜像"></a>base镜像</h4><p>不依赖其他镜像，其他镜像以之为基础构建。</p>
+<p>典型的linux系统由内核空间和用户空间组成,启动时需要两个FS，bootfs+rootfs,base镜像直接用宿主机的kernel，自己提供rootfs。</p>
+<p>Base镜像提供最小运行的linux发行版。</p>
+<h4 id="镜像的分层结构"><a href="#镜像的分层结构" class="headerlink" title="镜像的分层结构"></a>镜像的分层结构</h4><p>Docker支持通过扩展现有镜像，创建新的镜像。</p>
+<p>使用DockerFile构建镜像时，一个指令就会构建一层新镜像。</p>
+<p>分层的好处时可以资源共享，使用同一种Base镜像就可以只保留一份Base镜像。</p>
+<p>如果是共享一份基础镜像，那么当容器修改基础镜像的内容是否会影响其他容器，答案是不会的。修改会被限制在单个容器内。</p>
+<ul>
+<li>新数据直接放在最上层容器</li>
+<li>修改现有数据会从镜像层将数据复制到容器层，修改后的数据直接保存在容器层</li>
+<li>如果多个层中有命名，用户只能看到最上层的数据。</li>
+</ul>
+<h3 id="镜像写时复制"><a href="#镜像写时复制" class="headerlink" title="镜像写时复制"></a>镜像写时复制</h3><p>容器启动时将rootfs设为readonly,并在其上挂在一个readwrite的文件系统，这样的一个只读文件系统和一个读写文件系统构成 container的运行目录，所有的改动都在容器层</p>
+<ul>
+<li>添加文件：在容器中创建文件时，新文件被添加到容器中。</li>
+<li>读取文件：在容器中读取某个，Docker会从上往下依次在各镜像层中查找该文件</li>
+<li>修改文件：Docker会从上往下依次在各镜像层中查找该文件，一旦找到立即将其复制到容器层，然后修改。</li>
+<li>删除文件：在容器中删除文件时，Docker 也是从上往下依次在镜像层中查找此文件。找到后，会在容器层中记录下此删除操作。</li>
+</ul>
+<h2 id="四、数据共享与持久化"><a href="#四、数据共享与持久化" class="headerlink" title="四、数据共享与持久化"></a>四、数据共享与持久化</h2><h3 id="挂载数据卷"><a href="#挂载数据卷" class="headerlink" title="挂载数据卷"></a>挂载数据卷</h3><p>使用–mount参数，-v或者–volume</p>
+<p>查看所有数据卷</p>
+<blockquote>
+<p>docker volume ls</p>
+</blockquote>
+<p>查看数据卷详情</p>
+<blockquote>
+<p>docker inspect my-vol</p>
+</blockquote>
+<p>run容器时加载数据卷</p>
+<p>–mount source=my-vol,target=/webapp</p>
+<p>删除数据卷</p>
+<blockquote>
+<p>docker volume rm my-vol</p>
+</blockquote>
+<p>删除无主数据卷</p>
+<blockquote>
+<p>docker volume prune</p>
+</blockquote>
+<p>选择-v还是–mount，推荐–mount,挂在宿主机目录作为数据卷</p>
+<blockquote>
+<p>–mount type=bind,source=/src/webapp,target=/opt/webapp,readonly</p>
+</blockquote>
+<h3 id="创建数据卷"><a href="#创建数据卷" class="headerlink" title="创建数据卷"></a>创建数据卷</h3><blockquote>
+<p>docker volume create my-vol</p>
+</blockquote>
+<h3 id="数据卷备份与迁移"><a href="#数据卷备份与迁移" class="headerlink" title="数据卷备份与迁移"></a>数据卷备份与迁移</h3><h3 id="数据卷插件"><a href="#数据卷插件" class="headerlink" title="数据卷插件"></a>数据卷插件</h3><h2 id="五、Docker网络"><a href="#五、Docker网络" class="headerlink" title="五、Docker网络"></a>五、Docker网络</h2><h3 id="Docker网络模式"><a href="#Docker网络模式" class="headerlink" title="Docker网络模式"></a>Docker网络模式</h3><ul>
+<li><p>host模式：使用 –net=host 指定。</p>
+</li>
+<li><p>none模式：使用 –net=none 指定。</p>
+</li>
+<li><p>bridge模式：使用 –net=bridge 指定，默认设置。</p>
+</li>
+<li><p>container模式：使用 –net=container:NAME_or_ID 指定。</p>
+</li>
+</ul>
+<h3 id="跨主机多子网通信"><a href="#跨主机多子网通信" class="headerlink" title="跨主机多子网通信"></a>跨主机多子网通信</h3><h2 id="六、Docker最佳实践"><a href="#六、Docker最佳实践" class="headerlink" title="六、Docker最佳实践"></a>六、Docker最佳实践</h2><h3 id="常用容器命令"><a href="#常用容器命令" class="headerlink" title="常用容器命令"></a>常用容器命令</h3><h3 id="使用Dockerfile构建镜像"><a href="#使用Dockerfile构建镜像" class="headerlink" title="使用Dockerfile构建镜像"></a>使用Dockerfile构建镜像</h3><p>可以通过Dockerfile,利用指令将每一层修改，安装，构建，操作写成脚本。</p>
+<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><h5 id="FROM-指定基础镜像"><a href="#FROM-指定基础镜像" class="headerlink" title="FROM 指定基础镜像"></a>FROM 指定基础镜像</h5><p>以scratch为基础镜像的，意味着不使用任何镜像作为基础。</p>
+<h5 id="RNN指令-用于执行命令"><a href="#RNN指令-用于执行命令" class="headerlink" title="RNN指令  用于执行命令"></a>RNN指令  用于执行命令</h5><p>两种格式：</p>
+<blockquote>
+<p>shell格式: RUN &lt;命令&gt;</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RUN echo 'Hello'</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>exec格式: RUN[“可执行文件”,”参数1”,”参数2”] 这样更像函数调用</p>
+</blockquote>
+<p>Docker的每一个指令就会创建一层镜像，因为UnionFS层数是有限制的，所以RUN 执行的命令可以用\结尾，并使用&amp;&amp;连接。</p>
+<h5 id="COPY-复制文件"><a href="#COPY-复制文件" class="headerlink" title="COPY 复制文件"></a>COPY 复制文件</h5><ul>
+<li><p>COPY &lt;源路径&gt;…&lt;目标路径&gt;</p>
+</li>
+<li><p>COPY [“&lt;源路径1&gt;”,”&lt;目标路径&gt;”]</p>
+</li>
+</ul>
+<p>复制时源路径以build时的上下文目录路径为参考，使用相对路径。目标路径时容器内的绝对路径也可以相对于工作目录的相对路径，工作目录由WORKDIR指定。</p>
+<h5 id="ADD更高级的复制文件"><a href="#ADD更高级的复制文件" class="headerlink" title="ADD更高级的复制文件"></a>ADD更高级的复制文件</h5><p>自动解压文件，尽量使用COPY，需要解压文件时使用ADD</p>
+<h5 id="CMD容器启动命令"><a href="#CMD容器启动命令" class="headerlink" title="CMD容器启动命令"></a>CMD容器启动命令</h5><p>指定默认容器主进程的启动命令，</p>
+<p>第一种</p>
+<blockquote>
+<p>shell格式: CMD &lt;命令&gt;</p>
+</blockquote>
+<p>第二种</p>
+<blockquote>
+<p>exec格式: CMD[“可执行文件”, “参数1”…]</p>
+</blockquote>
+<p>第三种</p>
+<blockquote>
+<p>CMD[“参数1”,”参数2”…] 在指定了ENTRYPOINT指令后,用CMD指定参数。</p>
+</blockquote>
+<h5 id="ENTRYPOINT-入口点"><a href="#ENTRYPOINT-入口点" class="headerlink" title="ENTRYPOINT 入口点"></a>ENTRYPOINT 入口点</h5><p>指定容器启动时参数和命令，运行时需要–entrypoint指定。</p>
+<p>指定了ENTRYPOINT后，CMD的含义就会被改变，会被传给ENTRYPOINT</p>
+<blockquote>
+<p><entrypoint> <cmd></cmd></entrypoint></p>
+</blockquote>
+<p>适用场景：</p>
+<ul>
+<li>让镜像像命令一样使用</li>
+<li>应用运行前的准备工作</li>
+</ul>
+<h5 id="ENV-设置环境变量"><a href="#ENV-设置环境变量" class="headerlink" title="ENV 设置环境变量"></a>ENV 设置环境变量</h5><p>指定环境变量</p>
+<p>两种格式：</p>
+<p>第一种</p>
+<blockquote>
+<p>ENV key=value</p>
+</blockquote>
+<p>第二种</p>
+<blockquote>
+<p>ENV key value</p>
+</blockquote>
+<h5 id="ARG-构建参数"><a href="#ARG-构建参数" class="headerlink" title="ARG 构建参数"></a>ARG 构建参数</h5><h5 id="VOLUME-定义匿名卷"><a href="#VOLUME-定义匿名卷" class="headerlink" title="VOLUME 定义匿名卷"></a>VOLUME 定义匿名卷</h5><h5 id="EXPOSE-暴露端口"><a href="#EXPOSE-暴露端口" class="headerlink" title="EXPOSE 暴露端口"></a>EXPOSE 暴露端口</h5><h5 id="WORKDIR-指定工作目录"><a href="#WORKDIR-指定工作目录" class="headerlink" title="WORKDIR 指定工作目录"></a>WORKDIR 指定工作目录</h5><h5 id="USER-指定当前用户"><a href="#USER-指定当前用户" class="headerlink" title="USER 指定当前用户"></a>USER 指定当前用户</h5><h5 id="HEALTHCHECK-健康检查"><a href="#HEALTHCHECK-健康检查" class="headerlink" title="HEALTHCHECK 健康检查"></a>HEALTHCHECK 健康检查</h5><h5 id="ONBUILD"><a href="#ONBUILD" class="headerlink" title="ONBUILD"></a>ONBUILD</h5><h3 id="Docker安全部署实践"><a href="#Docker安全部署实践" class="headerlink" title="Docker安全部署实践"></a>Docker安全部署实践</h3><h3 id="Docker运维实践"><a href="#Docker运维实践" class="headerlink" title="Docker运维实践"></a>Docker运维实践</h3>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yuzfds.cn/2019/04/20/JavaScript总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yuzf">
+      <meta itemprop="description" content="江头未是风波恶，别有人间行路难">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yuzf's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/04/20/JavaScript总结/" class="post-title-link" itemprop="url">JavaScript总结</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-20 14:25:15" itemprop="dateCreated datePublished" datetime="2019-04-20T14:25:15+08:00">2019-04-20</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-05-10 18:56:40" itemprop="dateModified" datetime="2019-05-10T18:56:40+08:00">2019-05-10</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="一、对象"><a href="#一、对象" class="headerlink" title="一、对象"></a>一、对象</h2><h3 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h3><p>存储键值映射，可通过{}和其中的一些可选属性来创建。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> user = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line"><span class="keyword">let</span> user = &#123;&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="方括号"><a href="#方括号" class="headerlink" title="方括号"></a>方括号</h4><p>除了可以用user.name来获取对象属性，还可以使用user[‘name’]来获取，因为在多词属性时，不可以用类似user.like birds这种语法来获取。还可以用以下方式获取。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> key = <span class="string">"like birds"</span>;</span><br><span class="line">user[key] = <span class="string">"鸭子"</span>;</span><br></pre></td></tr></table></figure>
+<p>在对象字面量属性中使用[]，为计算属性，例：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> fruit = prompt(<span class="string">"Which fruit to buy?"</span>, <span class="string">"apple"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> bag = &#123;</span><br><span class="line">  [fruit]: <span class="number">5</span>, <span class="comment">// 属性名从 fruit 变量中计算</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">alert( bag.apple ); <span class="comment">// 5 如果 fruit="apple"</span></span><br></pre></td></tr></table></figure>
+<p>本质上与以下代码相同:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">et fruit = prompt(<span class="string">"Which fruit to buy?"</span>, <span class="string">"apple"</span>);</span><br><span class="line"><span class="keyword">let</span> bag = &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 从 fruit 变量中获取值</span></span><br><span class="line">bag[fruit] = <span class="number">5</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="属性值简写"><a href="#属性值简写" class="headerlink" title="属性值简写"></a>属性值简写</h4><p>实际应用中常常将存在的变量当作属性名。<br>例如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">makeUser</span>(<span class="params">name, age</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    name: name,</span><br><span class="line">    age: age</span><br><span class="line">    <span class="comment">// 其他的属性</span></span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> user = makeUser(<span class="string">"John"</span>, <span class="number">30</span>);</span><br><span class="line">alert(user.name); <span class="comment">// John</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//可简写为</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">makeUser</span>(<span class="params">name, age</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    name, <span class="comment">// 与 name: name 相同</span></span><br><span class="line">    age   <span class="comment">// 与 age: age 相同</span></span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="存在值检查"><a href="#存在值检查" class="headerlink" title="存在值检查"></a>存在值检查</h4><p>对象可以访问任何属性，如果该属性名没有值，或者不存在，也不会有错误，而是返回undefined。</p>
+<p>所以判断属性是否存在时可将获得的值与undefined比较。也可以使用一个特别的操作符”in”来检查是否属性存在。</p>
+<p>语法为：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"key"</span> <span class="keyword">in</span> object</span><br></pre></td></tr></table></figure>
+<h4 id="for-in循环"><a href="#for-in循环" class="headerlink" title="for in循环"></a>for in循环</h4><p>在遍历对象属性时可以使用for in</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> user = &#123;</span><br><span class="line">  name: <span class="string">"John"</span>,</span><br><span class="line">  age: <span class="number">30</span>,</span><br><span class="line">  isAdmin: <span class="literal">true</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> key <span class="keyword">in</span> user) &#123;</span><br><span class="line">  <span class="comment">// keys</span></span><br><span class="line">  alert( key );  <span class="comment">// name, age, isAdmin</span></span><br><span class="line">  <span class="comment">// 属性键的值</span></span><br><span class="line">  alert( user[key] ); <span class="comment">// John, 30, true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="引用复制"><a href="#引用复制" class="headerlink" title="引用复制"></a>引用复制</h4><p>原始类型：字符串，数字，布尔类型是整个赋值的，而对象是引用赋值的，变量将指向同一个地址，他们相等，如果两个引用指向地址不同即便值一样也是不相等的。</p>
+<p>例如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> user1 = &#123;&#125;;</span><br><span class="line"><span class="keyword">let</span> user2 = user1;</span><br><span class="line">alert(user1==user2) <span class="comment">//true</span></span><br><span class="line"><span class="keyword">let</span> user2 =&#123;&#125;</span><br><span class="line">alert(user1==user2) <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+<p>const修饰的对象中的属性是可变的。</p>
+<h4 id="比较引用"><a href="#比较引用" class="headerlink" title="比较引用"></a>比较引用</h4><p>等号==与严格等号===对于对象来说是没差别的，当两个引用指向同一个对象的时候他们相等。</p>
+<h4 id="赋值和合并"><a href="#赋值和合并" class="headerlink" title="赋值和合并"></a>赋值和合并</h4><p>那如何实现对象的深拷贝，可以创建新的对象，通过for in遍历要被复制的对象并赋值给新对象。</p>
+<p>也可以使用Object.assign实现</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.assign(dest[, src1, src2, src3...])</span><br></pre></td></tr></table></figure>
+<ul>
+<li>参数 dest 和 src1, …, srcN（可以有很多个）是对象。</li>
+<li>这个方法复制了 src1, …, srcN 的所有对象到 dest。换句话说，从第二个参数开始，所有对象的属性都复制给了第一个参数对象，然后返回 dest。</li>
+</ul>
+<p>该方法进行拷贝：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> user = &#123;</span><br><span class="line">  name: <span class="string">'李白'</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> clone = <span class="built_in">Object</span>.assign(&#123;&#125;, user);</span><br></pre></td></tr></table></figure>
+<p>改方法在对象中嵌套了对象时会出现问题，无法深拷贝被嵌套的对象，所以我们深拷贝时可以使用js的库lodash的方法_.cloneDeep(obj)</p>
+<h3 id="Symbol类型"><a href="#Symbol类型" class="headerlink" title="Symbol类型"></a>Symbol类型</h3><p>对象的key只能时String或者Symbol类型，String类型比较常见。</p>
+<h4 id="Symbol"><a href="#Symbol" class="headerlink" title="Symbol"></a>Symbol</h4><p>Symbol值表示唯一的标识符。</p>
+<p>可以使用Symbol()创建这种类型的值。</p>
+<p>例如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> id = <span class="built_in">Symbol</span>();</span><br></pre></td></tr></table></figure>
+<p>为了便于调试，可以给Symbol一个描述。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> id = <span class="built_in">Symbol</span>(<span class="string">'id'</span>);</span><br></pre></td></tr></table></figure>
+<p>描述相同的Symbol值是不一样的，且Symbol转成字符串时需要调用toString方法</p>
+<h4 id="隐藏属性"><a href="#隐藏属性" class="headerlink" title="隐藏属性"></a>隐藏属性</h4><p>Symbol 允许我们创建对象的“隐藏”属性，代码的任何其他部分都不能偶尔访问或重写这些属性。因为用Symbol作为键，在访问时必须用该Symbol去访问。</p>
+<p>如果想在字面量中使用Symbol则需要[]</p>
+<p>for in循环会跳过Symbol，Object.assign则不会。</p>
+<h4 id="全局Symbol"><a href="#全局Symbol" class="headerlink" title="全局Symbol"></a>全局Symbol</h4><p>每一个新建的Symbol都是不同的，所以我们如果想要相同名字的Symbol一致就必须用到全局Symbol注册表，在其中创建Symbol并且在之后可以通过它得到相同名字的Symbol。</p>
+<p>创建和读取都用Symbol.for(key)</p>
+<h4 id="Symbol-keyFor"><a href="#Symbol-keyFor" class="headerlink" title="Symbol.keyFor"></a>Symbol.keyFor</h4><p>Symbol.for(key)的一个反向调用，根据一个 全局Symbol获取它的名称。</p>
+<h4 id="系统Symbol"><a href="#系统Symbol" class="headerlink" title="系统Symbol"></a>系统Symbol</h4><p>js内部存在许多系统Symbol</p>
+<p>如：</p>
+<ul>
+<li>Symbol.hasInstance</li>
+<li>Symbol.isConcatSpreadable</li>
+<li>Symbol.iterator</li>
+<li>Symbol.toPrimitive</li>
+</ul>
+<p>等</p>
+<h3 id="对象原始值转换"><a href="#对象原始值转换" class="headerlink" title="对象原始值转换"></a>对象原始值转换</h3><h3 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h3><p>js的内存管理是自动的，所有我们创建的原始值，对象，函数等都是占用内存的。</p>
+<p>js的内存管理概念为可达性，与Java的垃圾回收在一定程度上具有相似性。</p>
+<p>将一些值作为根，从根出发，不可以通过引用到达的值将会被垃圾回收，在js引擎中有一个垃圾回收器在后台自动执行，监控所有对象的状态，并删除不可达对象。</p>
+<h3 id="对象方法与“this”"><a href="#对象方法与“this”" class="headerlink" title="对象方法与“this”"></a>对象方法与“this”</h3><h3 id="构造函数和操作符”new”"><a href="#构造函数和操作符”new”" class="headerlink" title="构造函数和操作符”new”"></a>构造函数和操作符”new”</h3><h2 id="二、数据类型"><a href="#二、数据类型" class="headerlink" title="二、数据类型"></a>二、数据类型</h2><h2 id="三、函数"><a href="#三、函数" class="headerlink" title="三、函数"></a>三、函数</h2><h2 id="四、面向对象"><a href="#四、面向对象" class="headerlink" title="四、面向对象"></a>四、面向对象</h2><h2 id="五、错误处理"><a href="#五、错误处理" class="headerlink" title="五、错误处理"></a>五、错误处理</h2><h2 id="六、Document"><a href="#六、Document" class="headerlink" title="六、Document"></a>六、Document</h2><h2 id="七、事件简介"><a href="#七、事件简介" class="headerlink" title="七、事件简介"></a>七、事件简介</h2><h2 id="八、事件细节"><a href="#八、事件细节" class="headerlink" title="八、事件细节"></a>八、事件细节</h2><h2 id="九、表单，控件"><a href="#九、表单，控件" class="headerlink" title="九、表单，控件"></a>九、表单，控件</h2><h2 id="十、动画"><a href="#十、动画" class="headerlink" title="十、动画"></a>十、动画</h2><h2 id="十一、框架和窗口"><a href="#十一、框架和窗口" class="headerlink" title="十一、框架和窗口"></a>十一、框架和窗口</h2><h2 id="十二、正则"><a href="#十二、正则" class="headerlink" title="十二、正则"></a>十二、正则</h2><h2 id="十三、Promise，async-await"><a href="#十三、Promise，async-await" class="headerlink" title="十三、Promise，async/await"></a>十三、Promise，async/await</h2><h2 id="十四、网络请求：AJAX和COMET"><a href="#十四、网络请求：AJAX和COMET" class="headerlink" title="十四、网络请求：AJAX和COMET"></a>十四、网络请求：AJAX和COMET</h2>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yuzfds.cn/2019/04/20/python总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yuzf">
+      <meta itemprop="description" content="江头未是风波恶，别有人间行路难">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yuzf's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/04/20/python总结/" class="post-title-link" itemprop="url">python总结</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-20 14:15:09" itemprop="dateCreated datePublished" datetime="2019-04-20T14:15:09+08:00">2019-04-20</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-05-06 19:34:35" itemprop="dateModified" datetime="2019-05-06T19:34:35+08:00">2019-05-06</time>
               
             
           </span>
@@ -716,7 +1243,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机基础/" itemprop="url" rel="index"><span itemprop="name">计算机基础</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
 
                 
                 
@@ -753,35 +1280,24 @@
       
         
           
-            <h2 id="体系结构"><a href="#体系结构" class="headerlink" title="体系结构"></a>体系结构</h2><h3 id="TCP-IP四层"><a href="#TCP-IP四层" class="headerlink" title="TCP/IP四层"></a>TCP/IP四层</h3><ul>
-<li>应用层</li>
-<li>传输层</li>
-<li>网际层</li>
-<li>网络接口层</li>
-</ul>
-<h3 id="TCP-IP五层"><a href="#TCP-IP五层" class="headerlink" title="TCP/IP五层"></a>TCP/IP五层</h3><ul>
-<li>应用层</li>
-<li>传输层</li>
-<li>网络层</li>
-<li>数据链路层</li>
-<li>物理层</li>
-</ul>
-<h3 id="OSI七层"><a href="#OSI七层" class="headerlink" title="OSI七层"></a>OSI七层</h3><ul>
-<li>应用层</li>
-<li>表现层</li>
-<li>会话层</li>
-<li>传输层</li>
-<li>网络层</li>
-<li>数据链路层</li>
-<li>物理层</li>
-</ul>
-<h2 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h2><h3 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h3><p>超文本传输协议(Hyper Text Transfer Protocol),是一种建立在TCP桑的无状态连接。HTTP用于客户端与服务器之间的通信，规定了客户端和服务器之间的通信格式。</p>
-<h4 id="报文格式"><a href="#报文格式" class="headerlink" title="报文格式"></a>报文格式</h4><p>一个HTTP的请求必定是由客户端发起，服务器端回复响应。服务器在没接收到请求之前是不会发送响应的</p>
-<h5 id="请求报文"><a href="#请求报文" class="headerlink" title="请求报文"></a>请求报文</h5><p>由请求行+请求头+空行+请求正文组成</p>
-<p>请求行格式为：方法+路径+HTTP版本</p>
-<p>请求头包含许多键值对</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h5 id="响应报文"><a href="#响应报文" class="headerlink" title="响应报文"></a>响应报文</h5><h4 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h4><h3 id="HTTPS"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS</h3><h3 id="DNS"><a href="#DNS" class="headerlink" title="DNS"></a>DNS</h3><h3 id="P2P"><a href="#P2P" class="headerlink" title="P2P"></a>P2P</h3><h2 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a>传输层</h2><h3 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h3><h4 id="TCP报文格式"><a href="#TCP报文格式" class="headerlink" title="TCP报文格式"></a>TCP报文格式</h4><h4 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h4><h4 id="四次挥手"><a href="#四次挥手" class="headerlink" title="四次挥手"></a>四次挥手</h4><h4 id="拥塞控制"><a href="#拥塞控制" class="headerlink" title="拥塞控制"></a>拥塞控制</h4><h4 id="滑动窗口机制"><a href="#滑动窗口机制" class="headerlink" title="滑动窗口机制"></a>滑动窗口机制</h4><h4 id="拆包与粘包"><a href="#拆包与粘包" class="headerlink" title="拆包与粘包"></a>拆包与粘包</h4><h3 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a>UDP</h3><h2 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h2><h3 id="IP"><a href="#IP" class="headerlink" title="IP"></a>IP</h3><h4 id="IPV4与IPV6"><a href="#IPV4与IPV6" class="headerlink" title="IPV4与IPV6"></a>IPV4与IPV6</h4><h4 id="IP分类"><a href="#IP分类" class="headerlink" title="IP分类"></a>IP分类</h4><h4 id="IP子网划分"><a href="#IP子网划分" class="headerlink" title="IP子网划分"></a>IP子网划分</h4><h3 id="ICMP"><a href="#ICMP" class="headerlink" title="ICMP"></a>ICMP</h3><h3 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h3><h4 id="路由协议"><a href="#路由协议" class="headerlink" title="路由协议"></a>路由协议</h4><h5 id="RIP"><a href="#RIP" class="headerlink" title="RIP"></a>RIP</h5><h5 id="OSPF"><a href="#OSPF" class="headerlink" title="OSPF"></a>OSPF</h5><h5 id="BGP"><a href="#BGP" class="headerlink" title="BGP"></a>BGP</h5><h4 id="路由算法"><a href="#路由算法" class="headerlink" title="路由算法"></a>路由算法</h4><h5 id="LS"><a href="#LS" class="headerlink" title="LS"></a>LS</h5><h5 id="DV"><a href="#DV" class="headerlink" title="DV"></a>DV</h5><h2 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h2><h3 id="PPP协议"><a href="#PPP协议" class="headerlink" title="PPP协议"></a>PPP协议</h3><h3 id="以太网"><a href="#以太网" class="headerlink" title="以太网"></a>以太网</h3>
+            <h2 id="函数式编程：匿名函数、高阶函数、装饰器"><a href="#函数式编程：匿名函数、高阶函数、装饰器" class="headerlink" title="函数式编程：匿名函数、高阶函数、装饰器"></a>函数式编程：匿名函数、高阶函数、装饰器</h2><h3 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h3><h3 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h3><h4 id="1-变量可以指向函数"><a href="#1-变量可以指向函数" class="headerlink" title="1. 变量可以指向函数"></a>1. 变量可以指向函数</h4><p>例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">-12</span></span><br><span class="line">b = abs</span><br><span class="line">print(b)</span><br><span class="line"><span class="comment"># 答案为 &lt;built-in function abs&gt;</span></span><br><span class="line">print(b(a))</span><br><span class="line"><span class="comment"># 答案为 12</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-可传入函数"><a href="#2-可传入函数" class="headerlink" title="2. 可传入函数"></a>2. 可传入函数</h4><p>例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(x, y, f)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> f(x)+f(y)</span><br><span class="line">c = add(<span class="number">-5</span>,<span class="number">-8</span>,abs)</span><br><span class="line">print(c)</span><br><span class="line"><span class="comment"># 答案为 13</span></span><br></pre></td></tr></table></figure>
+<h4 id="3-内建map-reduce函数"><a href="#3-内建map-reduce函数" class="headerlink" title="3. 内建map/reduce函数"></a>3. 内建map/reduce函数</h4><p>map接受两个参数，一个是function,另一个是Iterable，map将function作用于Iterable中的每个元素，返回新的Iterable。<br>例：用map将list中的每个元素都平方</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fun</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x*x</span><br><span class="line"></span><br><span class="line">list1 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line">list2 = map(fun, list1)</span><br><span class="line">print(list(list2))</span><br></pre></td></tr></table></figure>
+<p>reduce也是接受两个参数，一个是function,另一个是Iterable，reduce将function累积作用于Iterable<br>例1：就像这样</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fun</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x*x</span><br><span class="line">reduce(fun, [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>])</span><br><span class="line"><span class="comment">#计算过程为</span></span><br><span class="line"><span class="comment">#fun(1,2)</span></span><br><span class="line"><span class="comment">#fun(fun(1，2)，3)</span></span><br><span class="line"><span class="comment">#fun(fun(fun(1,2),3),4)</span></span><br></pre></td></tr></table></figure>
+<p>例2：list求和</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> reduce</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fun</span><span class="params">(a,b)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> a+b</span><br><span class="line"></span><br><span class="line">c=reduce(fun, [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>])</span><br><span class="line">print(c)</span><br></pre></td></tr></table></figure>
+<h4 id="4-内建filter函数"><a href="#4-内建filter函数" class="headerlink" title="4. 内建filter函数"></a>4. 内建filter函数</h4><p>reduce也是接受两个参数，一个是function,另一个是Iterable，filter将function作用于每个Iterable中的元素，更具返回值的true和false进行过滤</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">is_odd</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x%<span class="number">2</span>==<span class="number">1</span></span><br><span class="line"></span><br><span class="line">list(filter(is_odd, [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>]))</span><br></pre></td></tr></table></figure>
+<h4 id="5-内建sorted函数"><a href="#5-内建sorted函数" class="headerlink" title="5. 内建sorted函数"></a>5. 内建sorted函数</h4><p>接受参数Iterable进行排序，可以在接受一个key实现自定义排序</p>
+<p>例:根据绝对值排序</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sorted([<span class="number">11</span>,<span class="number">-23</span>,<span class="number">10</span>,<span class="number">-54</span>,<span class="number">-10</span>,<span class="number">9</span>],key=abs)</span><br></pre></td></tr></table></figure>
+<h4 id="6-返回函数，闭包"><a href="#6-返回函数，闭包" class="headerlink" title="6. 返回函数，闭包"></a>6. 返回函数，闭包</h4><h4 id="7-args与-kw"><a href="#7-args与-kw" class="headerlink" title="7. *args与**kw"></a>7. *args与**kw</h4><p>*args 非关键字参数，元组</p>
+<p>**kw 关键字参数，字典</p>
+<h3 id="装饰器"><a href="#装饰器" class="headerlink" title="装饰器"></a>装饰器</h3><h2 id="一切皆对象"><a href="#一切皆对象" class="headerlink" title="一切皆对象"></a>一切皆对象</h2><h2 id="魔法函数"><a href="#魔法函数" class="headerlink" title="魔法函数"></a>魔法函数</h2><h2 id="类与对象"><a href="#类与对象" class="headerlink" title="类与对象"></a>类与对象</h2><h2 id="自定义序列类"><a href="#自定义序列类" class="headerlink" title="自定义序列类"></a>自定义序列类</h2><h2 id="python的set和dict"><a href="#python的set和dict" class="headerlink" title="python的set和dict"></a>python的set和dict</h2><h2 id="对象引用，可变性郁垃圾回收"><a href="#对象引用，可变性郁垃圾回收" class="headerlink" title="对象引用，可变性郁垃圾回收"></a>对象引用，可变性郁垃圾回收</h2><h2 id="元类编程"><a href="#元类编程" class="headerlink" title="元类编程"></a>元类编程</h2><h2 id="迭代器与生成器"><a href="#迭代器与生成器" class="headerlink" title="迭代器与生成器"></a>迭代器与生成器</h2><h2 id="socket编程"><a href="#socket编程" class="headerlink" title="socket编程"></a>socket编程</h2><h2 id="多线程，多进程和线程池编程"><a href="#多线程，多进程和线程池编程" class="headerlink" title="多线程，多进程和线程池编程"></a>多线程，多进程和线程池编程</h2><h2 id="协程与异步io"><a href="#协程与异步io" class="headerlink" title="协程与异步io"></a>协程与异步io</h2><h2 id="asyncio并发编程"><a href="#asyncio并发编程" class="headerlink" title="asyncio并发编程"></a>asyncio并发编程</h2>
           
         
       
@@ -1143,7 +1659,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1175,7 +1691,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">1</span>
+                      
+                    
+                    <span class="site-state-item-count">2</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
